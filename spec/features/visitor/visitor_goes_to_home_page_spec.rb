@@ -8,12 +8,12 @@ describe "Visitor" do
 
       expect(current_path).to eq('/')
       expect(page).to have_content('straVaELO')
-      expect(page).to have_css('.nav')
-      within('.nav') do
+      expect(page).to have_css('.navbar')
+      within('.navbar') do
         expect(page).to have_content('Log In')
       end
 
-      expect(page).to have_link('Log in with Strava')
+      expect(page).to have_content('Log in with Strava')
     end
   end
 end

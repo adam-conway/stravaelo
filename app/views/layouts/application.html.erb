@@ -6,10 +6,13 @@
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag    'application', media: 'all' %>
-    <%= javascript_include_tag 'application' %>
   </head>
 
   <body>
+
+    <%= render partial: 'layouts/nav' %>
+
     <%= yield %>
+    <%= javascript_include_tag 'application' %>
   </body>
 </html>
