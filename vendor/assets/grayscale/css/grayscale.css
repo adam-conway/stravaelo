@@ -3,8 +3,8 @@ body {
   position: relative;
   width: 100%;
   height: 100%;
-  color: white;
-  background-color: black;
+  color: #FC4207;
+  background-color: #3E474E;
 }
 
 html {
@@ -56,13 +56,13 @@ a:focus, a:hover {
   margin-bottom: 0;
   text-transform: uppercase;
   border-bottom: 1px solid rgba(255, 255, 255, 0.3);
-  background-color: black;
+  background-color: #3E474E;
 }
 
 #mainNav .navbar-toggler {
   font-size: 14px;
   padding: 11px;
-  color: white;
+  color: #FC4207;
   border: 1px solid white;
 }
 
@@ -71,7 +71,7 @@ a:focus, a:hover {
 }
 
 #mainNav a {
-  color: white;
+  color: #FC4207;
 }
 
 #mainNav .navbar-nav .nav-item {
@@ -106,7 +106,7 @@ a:focus, a:hover {
     padding-top: 10px;
     padding-bottom: 10px;
     border-bottom: 1px solid rgba(255, 255, 255, 0.3);
-    background: black;
+    background: #3E474E;
   }
   #mainNav .nav-link.active {
     outline: none;
@@ -126,7 +126,7 @@ a:focus, a:hover {
   color: white;
   background-image: url('assets/beautiful-cold-fog-547115.jpg') no-repeat bottom center scroll;
   /* background-image: url(background.jpg) */
-  background-color: black;
+  background-color: #3E474E;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
