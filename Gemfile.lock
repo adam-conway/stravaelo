@@ -254,6 +254,7 @@ DEPENDENCIES
   byebug
   capybara
   coffee-rails (~> 4.2)
+  faraday
   figaro
   font-awesome-rails
   jbuilder (~> 2.5)
