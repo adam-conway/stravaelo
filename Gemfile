@@ -27,6 +27,7 @@ group :development, :test do
   gem 'pry'
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'capybara'
+  gem 'factory_bot_rails'
 end
 
 group :development do
@@ -39,6 +40,7 @@ end
 group :test do
   gem 'webmock'
   gem 'vcr'
+  gem 'faker'
 end
 
 
