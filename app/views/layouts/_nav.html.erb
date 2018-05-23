@@ -13,9 +13,28 @@
         <li class="nav-item">
           <a class="nav-link js-scroll-trigger" href="#map">Map</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link js-scroll-trigger" href="/auth/strava">Log In With Strava</a>
-        </li>
+        <% if current_user %>
+          <!-- <li class="nav-item">
+            <p class="nav-link js-scroll-trigger"> <%= current_user.email %></p>
+          </li> -->
+          <li class="nav-item">
+            <div class='dropdowns'>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id='navbarDropdown' role='button' data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <%= current_user.email %>
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <%= link_to "Dashboard", root_path, class: "dropdown-item" %>
+                  <%= link_to "Index", root_path, class: "dropdown-item" %>
+                </div>
+              </li>
+            </div>
+          </li>
+        <% else %>
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="/auth/strava">Log In With Strava</a>
+          </li>
+        <% end %>
       </ul>
     </div>
   </div>
