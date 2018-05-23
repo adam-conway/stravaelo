@@ -28,6 +28,7 @@ group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'capybara'
   gem 'factory_bot_rails'
+  gem 'launchy'
 end
 
 group :development do

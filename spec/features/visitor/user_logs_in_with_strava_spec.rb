@@ -11,15 +11,18 @@ describe 'Visitor' do
     end
   end
   scenario 'they can log out' do
-    # VCR.use_cassette("logging-out") do
-      # stub_omniauth
-      user = create(:user)
-      allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
+    VCR.use_cassette("logging-out") do
+      stub_omniauth
       visit root_path
+      click_link 'Log In With Strava'
+      user = User.last
+
       expect(page).to have_link(user.name)
+
       click_link user.name
       click_link 'Logout'
+
       expect(page).to_not have_content(user.name)
-    # end
+    end
   end
 end
