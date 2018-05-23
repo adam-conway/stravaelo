@@ -26,6 +26,12 @@ require 'rspec/rails'
 # If you are not using ActiveRecord, you can remove this line.
 ActiveRecord::Migration.maintain_test_schema!
 
+VCR.configure do |config|
+  config.cassette_library_dir = "spec/fixtures/cassettes"
+  config.hook_into :webmock
+  config.filter_sensitive_data('<STRAVA_API_KEY>') { ENV['strava_my_token'] }
+end
+
 RSpec.configure do |config|
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
   config.fixture_path = "#{::Rails.root}/spec/fixtures"
@@ -54,4 +60,24 @@ RSpec.configure do |config|
   config.filter_rails_from_backtrace!
   # arbitrary gems may also be filtered via:
   # config.filter_gems_from_backtrace("gem name")
+end
+
+def stub_omniauth
+  OmniAuth.config.test_mode = true
+  OmniAuth.config.mock_auth[:strava] = OmniAuth::AuthHash.new ({
+    provider: 'strava',
+    info: {
+      email: 'adam.n.conway@gmail.com'
+    },
+    extra: {
+      raw_info: {
+        id: '8722083',
+        firstname: 'Adam',
+        lastname: 'Conway'
+      }
+    },
+    credentials: {
+      token: ENV["strava_my_token"],
+    }
+    })
 end

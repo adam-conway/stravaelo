@@ -13,7 +13,7 @@ describe "Visitor" do
         expect(page).to have_content('Log In')
       end
 
-      expect(page).to have_content('Log in with Strava')
+      expect(page).to have_content('Log In With Strava')
     end
   end
 end
