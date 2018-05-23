@@ -10,16 +10,19 @@ describe 'Visitor' do
       expect(page).to have_link('Adam Conway')
     end
   end
+  scenario 'they can log out' do
+    VCR.use_cassette("logging-out") do
+      stub_omniauth
+      visit root_path
+      click_link 'Log In With Strava'
+      user = User.last
 
-  # scenario 'they can log in and log out' do
-  #   VCR.use_cassette("logging-out") do
-  #     stub_omniauth
-  #     visit root_path
-  #     expect(page).to have_link('Log in with Strava')
-  #     click_link 'Log in with Strava'
-  #     click_link 'Logout'
-  #     expect(page).to_not have_content('adam.n.conway@gmail.com')
-  #   end
-  # end
+      expect(page).to have_link(user.name)
 
+      click_link user.name
+      click_link 'Logout'
+
+      expect(page).to_not have_content(user.name)
+    end
+  end
 end
