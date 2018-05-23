@@ -72,6 +72,8 @@ def stub_omniauth
     extra: {
       raw_info: {
         id: '8722083',
+        firstname: 'Adam',
+        lastname: 'Conway'
       }
     },
     credentials: {

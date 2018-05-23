@@ -7,8 +7,7 @@ describe 'Visitor' do
       visit root_path
       expect(page).to have_link('Log In With Strava')
       click_link 'Log In With Strava'
-      expect(page).to have_content('adam.n.conway@gmail.com')
-      expect(page).to have_link('Logout')
+      expect(page).to have_link('Adam Conway')
     end
   end
 
