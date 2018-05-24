@@ -56,13 +56,13 @@ a:focus, a:hover {
   margin-bottom: 0;
   text-transform: uppercase;
   border-bottom: 1px solid rgba(255, 255, 255, 0.3);
-  background-color: #FC4207;
+  background-color: #3E474E;
 }
 
 #mainNav .navbar-toggler {
   font-size: 14px;
   padding: 11px;
-  color: #FC4207;
+  color: #3E474E;
   border: 1px solid white;
 }
 
@@ -110,7 +110,7 @@ a:focus, a:hover {
     padding-top: 10px;
     padding-bottom: 10px;
     border-bottom: 1px solid rgba(255, 255, 255, 0.3);
-    background: #FC4207;
+    background: #3E474E;
   }
   #mainNav .nav-link.active {
     outline: none;
@@ -292,4 +292,11 @@ img::selection {
 
 img::-moz-selection {
   background: transparent;
+}
+
+.segment_add {
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+  width: 50%;
 }

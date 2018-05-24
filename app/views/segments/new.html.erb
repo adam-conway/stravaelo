@@ -1,0 +1,12 @@
+<header class="masthead">
+  <%= image_tag "background2.jpg", class: ""%>
+</header>
+
+<div class='segment_add form-control'>
+  <%= form_for @segment, class: "form-inline" do |f| %>
+    <div class="">
+      <%= f.text_field :id, class: "form-inline" %>
+      <%= f.submit "Add Segment", class: "btn btn-primary" %>
+    </div>
+  <% end %>
+</div>
