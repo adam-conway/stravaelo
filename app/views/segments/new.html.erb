@@ -8,15 +8,12 @@
   </div>
 </header>
 
-<!-- <%= form_tag :segments, method: :create, class: "form-inline" do %>
-  <div class="form-group search-field">
-    <%= text_field_tag :id, "Add Strava Segment", class: "form-control" %>
-    <%= submit_tag "Add Segment", class: "btn btn-primary" %>
-  </div>
-<% end %> -->
-<%= form_for @segment, class: "form-inline" do |f| %>
-  <div class="form-group search-field">
-    <%= f.text_field :id, class: "form-control" %>
-    <%= f.submit "Add Segment", class: "btn btn-primary" %>
-  </div>
-<% end %>
+<div class="form-group col-sm-1 row">
+  <%= form_for @segment, class: "form-inline" do |f| %>
+    <div class="form-group search-field">
+      <%= f.text_field :id, class: "form-control" %>
+
+      <%= f.submit "Add Segment", class: "btn btn-primary" %>
+    </div>
+  <% end %>
+</div>
