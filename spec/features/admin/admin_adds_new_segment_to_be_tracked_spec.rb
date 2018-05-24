@@ -13,4 +13,18 @@ describe 'Admin' do
       expect(page).to have_content('Hawk Hill was successfully added')
     end
   end
+
+  scenario 'Isnt able to add segment if its already in the DB' do
+    VCR.use_cassette("Adding-segment") do
+      visit new_segment_path
+      expect(current_path).to eq('/segments/new')
+      create(:segment, id: 229781)
+
+      fill_in 'segment[id]', with: 229781
+      click_on "Add Segment"
+
+      expect(current_path).to eq('/segments')
+      expect(page).to have_content('This segment has already been added')
+    end
+  end
 end
