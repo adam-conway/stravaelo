@@ -23,7 +23,7 @@ describe 'Admin' do
       fill_in 'segment[id]', with: 229781
       click_on "Add Segment"
 
-      expect(current_path).to eq('/segments')
+      expect(current_path).to eq('/segments/new')
       expect(page).to have_content('This segment has already been added')
     end
   end
