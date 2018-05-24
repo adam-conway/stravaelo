@@ -1,6 +1,22 @@
-<%= form_tag :segments, method: :create, class: "form-inline" do %>
+<header class="masthead">
+  <%= image_tag "background2.jpg", class: ""%>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 mx-auto">
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- <%= form_tag :segments, method: :create, class: "form-inline" do %>
   <div class="form-group search-field">
     <%= text_field_tag :id, "Add Strava Segment", class: "form-control" %>
     <%= submit_tag "Add Segment", class: "btn btn-primary" %>
+  </div>
+<% end %> -->
+<%= form_for @segment, class: "form-inline" do |f| %>
+  <div class="form-group search-field">
+    <%= f.text_field :id, class: "form-control" %>
+    <%= f.submit "Add Segment", class: "btn btn-primary" %>
   </div>
 <% end %>

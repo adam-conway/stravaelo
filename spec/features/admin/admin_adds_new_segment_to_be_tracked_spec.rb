@@ -6,12 +6,11 @@ describe 'Admin' do
       visit new_segment_path
       expect(current_path).to eq('/segments/new')
 
-      fill_in :id, with: 229781
+      fill_in 'segment[id]', with: 229781
       click_on "Add Segment"
 
       expect(current_path).to eq('/segments')
       expect(page).to have_content('Hawk Hill was successfully added')
-      expect(page).to have_link('Hawk Hill')
     end
   end
 end
