@@ -1,56 +1,38 @@
-<header class="masthead">
-  <%= image_tag "background2.jpg", class: ""%>
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-8 mx-auto">
-      </div>
+<div class='segment_add'>
+  <%= form_for @segment, class: "form-inline" do |f| %>
+    <div class="">
+      <%= f.text_field :id, class: "" %>
+      <%= f.submit "Add Segment", class: "btn btn-primary" %>
     </div>
-  </div>
-</header>
+  <% end %>
+</div>
 
-<!-- Leaderboard Section -->
-<section id="about" class="content-section text-center">
-  <div class="container">
-    <div class="row">
+<section class="content-section text-center">
+  <!-- <div class="container">
+    <div class="row"> -->
       <div class="col-lg-8 mx-auto">
-        <h3>Leaderboard</h3>
+        <h3>Segments</h3>
         <table class="table table-hover">
           <thead>
             <tr>
-              <th scope="col">Rank</th>
-              <th scope="col">Rider</th>
-              <th scope="col">ELO Rating</th>
-              <th scope="col">Last 30 days</th>
+              <th scope="col">Name</th>
+              <th scope="col">Stava Link</th>
+              <th scope="col">Number of Attempts</th>
+              <th scope="col">Elevation Gain</th>
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <th scope="row">1</th>
-              <td>Adam</td>
-              <td>1000</td>
-              <td><i class="fas fa-arrow-up"></i> 2</td>
-            </tr>
-            <tr>
-              <th scope="row">2</th>
-              <td>Bryan</td>
-              <td>900</td>
-              <td><i class="fas fa-arrow-down"></i> 1</td>
-            </tr>
-            <tr>
-              <th scope="row">3</th>
-              <td>Kenneth</td>
-              <td>800</td>
-              <td><i class="fas fa-arrow-down"></i> 1</td>
-            </tr>
-            <tr>
-              <th scope="row">45</th>
-              <td>You</td>
-              <td>10</td>
-              <td> - </td>
-            </tr>
+            <% @segments.each do |segment| %>
+              <tr>
+                <th scope="row"> <%= segment.name %></th>
+                <td><a href="https://www.strava.com/segments/<%= segment.id %>">View on Strava</a></td>
+                <td><%= segment.athlete_attempts %></td>
+                <td><%= segment.total_elevation_gain %></td>
+              </tr>
+            <% end %>
           </tbody>
         </table>
       </div>
-    </div>
-  </div>
+    <!-- </div>
+  </div> -->
 </section>

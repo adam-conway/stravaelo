@@ -12,7 +12,11 @@
   <body id="page-top">
 
     <%= render partial: 'layouts/nav' %>
-    
+
+    <header class="masthead">
+      <%= image_tag "background2.jpg", class: ""%>
+    </header>
+
     <div class="alert-<%= flash.keys[0]%>">
       <% flash.each do |key, value| %>
         <div class=" <%= flash_class(key) %> ">
@@ -22,6 +26,12 @@
     </div>
 
     <%= yield %>
+
+    <footer>
+      <div class="container text-center">
+        <p>Copyright &copy; straVELO 2018</p>
+      </div>
+    </footer>
 
     <%= javascript_include_tag 'application' %>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCRngKslUGJTlibkQ3FkfTxj3Xss1UlZDA&sensor=false"></script>

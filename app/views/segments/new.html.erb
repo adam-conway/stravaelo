@@ -1,18 +1,11 @@
 <header class="masthead">
   <%= image_tag "background2.jpg", class: ""%>
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-8 mx-auto">
-      </div>
-    </div>
-  </div>
 </header>
 
-<div class="form-group col-sm-1 row">
+<div class='segment_add form-control'>
   <%= form_for @segment, class: "form-inline" do |f| %>
-    <div class="form-group search-field">
-      <%= f.text_field :id, class: "form-control" %>
-
+    <div class="">
+      <%= f.text_field :id, class: "form-inline" %>
       <%= f.submit "Add Segment", class: "btn btn-primary" %>
     </div>
   <% end %>
