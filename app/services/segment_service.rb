@@ -11,7 +11,7 @@ private
   attr_reader :segment_id
 
   def response
-    Faraday.get "https://www.strava.com/api/v3/segments/#{segment_id}?access_token=#{ENV}"
+    Faraday.get "https://www.strava.com/api/v3/segments/#{segment_id}?access_token=#{ENV['strava_my_token']}"
   end
 
 
