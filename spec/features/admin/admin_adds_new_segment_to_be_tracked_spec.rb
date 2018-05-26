@@ -3,8 +3,8 @@ require "rails_helper"
 describe 'Admin' do
   scenario 'adds a new segment to be tracked' do
     VCR.use_cassette("Adding-segment") do
-      visit new_segment_path
-      expect(current_path).to eq('/segments/new')
+      visit segments_path
+      expect(current_path).to eq('/segments')
 
       fill_in 'segment[id]', with: 229781
       click_on "Add Segment"
@@ -16,14 +16,14 @@ describe 'Admin' do
 
   scenario 'Isnt able to add segment if its already in the DB' do
     VCR.use_cassette("Adding-segment") do
-      visit new_segment_path
-      expect(current_path).to eq('/segments/new')
+      visit segments_path
+      expect(current_path).to eq('/segments')
       create(:segment, id: 229781)
 
       fill_in 'segment[id]', with: 229781
       click_on "Add Segment"
 
-      expect(current_path).to eq('/segments/new')
+      expect(current_path).to eq('/segments')
       expect(page).to have_content('This segment has already been added')
     end
   end
