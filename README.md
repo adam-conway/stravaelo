@@ -22,3 +22,20 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+
+
+Ruby version - 2.4.3
+
+
+After you've cloned down:
+
+```
+bundle
+rake db:create
+rake db:migrate
+```
+
+To add your application.yml for api token storage:
+```
+bundle exec figaro install
+```
