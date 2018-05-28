@@ -1,7 +1,7 @@
 require 'rails_helper'
 
-describe Tournament do
-  context 'Field validations' do
+RSpec.describe Tournament, type: :model do
+  describe 'Field validations' do
     it { should validate_presence_of(:name) }
   end
 
