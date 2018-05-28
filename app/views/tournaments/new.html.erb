@@ -1,8 +1,12 @@
 <div class='tournament_new'>
   <%= form_for @tournament, class: "form-inline" do |f| %>
-    <!-- <div class="">
-      <%= f.text_field :id, class: "" %>
-      <%= f.submit "Add Segment", class: "btn btn-primary" %>
-    </div> -->
+    <div class="">
+      <%= f.collection_check_boxes :segment_ids, @segments, :id, :name %>
+
+      <%= f.label 'Tournament Name' %>
+      <%= f.text_field :name %>
+
+      <%= f.submit "Create Tournament", class: "btn btn-primary" %>
+    </div>
   <% end %>
 </div>
