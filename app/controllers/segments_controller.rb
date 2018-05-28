@@ -17,4 +17,16 @@ class SegmentsController < ApplicationController
     end
     redirect_to segments_path
   end
+
+  def destroy
+    @segment = Segment.find(params[:id])
+    if @segment.destroy
+      flash[:success] = "Segment deleted"
+      redirect_to segments_path
+    else
+      flash[:error] = "Failed to delete segment"
+      redirect_to segments_path
+    end
+  end
+  
 end

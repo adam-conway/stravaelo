@@ -14,5 +14,6 @@
 //= require js/bootstrap.bundle.min.js
 //= require jquery-easing/jquery.easing.min.js
 //= require js/grayscale.min.js
+//= require rails-ujs
 //= require activestorage
 //= require_tree .
