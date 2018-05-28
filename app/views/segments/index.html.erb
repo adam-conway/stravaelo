@@ -21,7 +21,7 @@
       </thead>
       <tbody>
         <% @segments.each do |segment| %>
-          <tr class="<%= segment.name %>">
+          <tr class="segment-<%= segment.id %>">
             <th scope="row"> <%= segment.name %></th>
             <td><a href="https://www.strava.com/segments/<%= segment.id %>">View on Strava</a></td>
             <td><%= segment.athlete_attempts %></td>

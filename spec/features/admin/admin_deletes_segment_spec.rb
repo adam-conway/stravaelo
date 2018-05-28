@@ -9,7 +9,7 @@ describe 'Admin' do
     expect(page).to have_content(segment2.total_elevation_gain)
     expect(page).to have_content(segment1.athlete_attempts)
 
-    within("#{segment1.name}") do
+    within("tr.segment-#{segment1.id}") do
       click_on 'Delete'
     end
 
