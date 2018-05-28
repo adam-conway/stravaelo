@@ -7,6 +7,7 @@ class TournamentsController < ApplicationController
   def create
     @tournament = Tournament.new(tournament_params)
     if @tournament.save
+      @tournament.user_tournaments.create(user_id: current_user.id)
       create_tournament_segments(params)
       flash[:success] = "Created a new tournament"
       redirect_to dashboard_path

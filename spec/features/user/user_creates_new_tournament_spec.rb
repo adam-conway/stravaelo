@@ -35,6 +35,8 @@ describe 'User' do
       expect(tournament.segments.count).to eq(2)
       expect(tournament.segments.first).to eq(segment1)
       expect(tournament.segments.last).to eq(segment2)
+      expect(tournament.users.count).to eq(1)
+      expect(tournament.users.first).to eq(user1)
     end
   end
 end
