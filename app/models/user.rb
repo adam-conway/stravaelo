@@ -8,4 +8,7 @@ class User < ApplicationRecord
       new_user.name               = auth_info.extra.raw_info.firstname + " " + auth_info.extra.raw_info.lastname
     end
   end
+
+  has_many :user_tournaments
+  has_many :tournaments, through: :user_tournaments
 end
