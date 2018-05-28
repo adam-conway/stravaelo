@@ -2,6 +2,8 @@ require "rails_helper"
 
 describe 'Admin' do
   scenario 'deletes a segment from segments index' do
+    admin = create(:user, role: 1)
+    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(admin)
     segment1 = create(:segment)
     segment2 = create(:segment)
     visit segments_path
