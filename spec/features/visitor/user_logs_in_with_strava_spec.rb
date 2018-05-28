@@ -8,6 +8,7 @@ describe 'Visitor' do
       expect(page).to have_link('Log In With Strava')
       click_link 'Log In With Strava'
       expect(page).to have_link('Adam Conway')
+      expect(current_path).to eq('/dashboard')
     end
   end
   scenario 'they can log out' do
