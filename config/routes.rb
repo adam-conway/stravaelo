@@ -5,5 +5,5 @@ Rails.application.routes.draw do
   get '/auth/strava/callback', to: 'sessions#create'
   get '/logout', to: 'sessions#destroy'
 
-  resources :segments, only: [:index, :new, :create]
+  resources :segments, only: [:index, :new, :create, :destroy]
 end

@@ -17,6 +17,7 @@
           <th scope="col">Stava Link</th>
           <th scope="col">Number of Attempts</th>
           <th scope="col">Elevation Gain</th>
+          <th scope="col"></th>
         </tr>
       </thead>
       <tbody>
@@ -26,6 +27,7 @@
             <td><a href="https://www.strava.com/segments/<%= segment.id %>">View on Strava</a></td>
             <td><%= segment.athlete_attempts %></td>
             <td><%= segment.total_elevation_gain %></td>
+            <td><%= link_to 'Delete', segment_path(segment), method: :delete, data: { confirm: "Are you sure? You will permanently delete this segment."} %></td>
           </tr>
         <% end %>
       </tbody>
