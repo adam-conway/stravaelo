@@ -1,5 +1,5 @@
 FactoryBot.define do
-  factory :tournament_segment do
+  factory :user_tournament do
     tournament
     user
   end
