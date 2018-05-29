@@ -21,7 +21,6 @@ class UserRankingQuery
 
     def segment_speed(token, segment_id)
       efforts = UserRankingService.new(token, segment_id).data
-      binding.pry
       if efforts == []
         nil
       else
