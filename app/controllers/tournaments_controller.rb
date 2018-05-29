@@ -1,4 +1,11 @@
 class TournamentsController < ApplicationController
+  def show
+    @tournament = Tournament.find(params[:id])
+    user_rankings = UserRankingQuery.new(@tournament.users, @tournament.segments)
+    user_rankings.run
+    @user_data = user_rankings.users_data
+  end
+
   def new
     @tournament = Tournament.new
     @segments = Segment.all
@@ -10,7 +17,7 @@ class TournamentsController < ApplicationController
       @tournament.user_tournaments.create(user_id: current_user.id)
       create_tournament_segments(params)
       flash[:success] = "Created a new tournament"
-      redirect_to dashboard_path
+      redirect_to tournament_path(@tournament)
     else
       flash[:error] = "Failed to create new tournament"
       render :new

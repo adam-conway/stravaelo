@@ -1,0 +1,48 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://www.strava.com/api/v3/segments/302/all_efforts?access_token=4675
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.12.2
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 401
+      message: Unauthorized
+    headers:
+      Date:
+      - Tue, 29 May 2018 14:39:22 GMT
+      Content-Type:
+      - application/json; charset=UTF-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Cache-Control:
+      - no-cache
+      Via:
+      - 1.1 linkerd
+      Status:
+      - 401 Unauthorized
+      X-Request-Id:
+      - 212410fb-6cee-477b-9d90-7323ad464c9d
+      X-Frame-Options:
+      - DENY
+      X-Content-Type-Options:
+      - nosniff
+      X-Xss-Protection:
+      - 1; mode=block
+    body:
+      encoding: ASCII-8BIT
+      string: '{"message":"Authorization Error","errors":[{"resource":"Application","field":"","code":"invalid"}]}'
+    http_version: 
+  recorded_at: Tue, 29 May 2018 14:39:22 GMT
+recorded_with: VCR 4.0.0

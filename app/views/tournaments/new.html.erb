@@ -1,12 +1,18 @@
-<div class='tournament_new'>
-  <%= form_for @tournament, class: "form-inline" do |f| %>
-    <div class="">
-      <%= f.collection_check_boxes :segment_ids, @segments, :id, :name %>
+<section id="map" class="content-section text-center">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 mx-auto">
+          <%= form_for @tournament, class: "form-inline" do |f| %>
+          <div class="">
+            <%= f.collection_check_boxes :segment_ids, @segments, :id, :name %>
 
-      <%= f.label 'Tournament Name' %>
-      <%= f.text_field :name %>
+            <%= f.label 'Tournament Name', class: 'row'%>
+            <%= f.text_field :name %>
 
-      <%= f.submit "Create Tournament", class: "btn btn-primary" %>
+            <%= f.submit "Create Tournament", class: "btn btn-primary" %>
+          </div>
+          <% end %>
+      </div>
     </div>
-  <% end %>
-</div>
+  </div>
+</section>

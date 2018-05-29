@@ -1,0 +1,32 @@
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
+  <div class="container">
+    <a class="navbar-brand js-scroll-trigger" href="/">straVaELO</a>
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+      Menu
+      <i class="fa fa-bars"></i>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav ml-auto">
+        <% if current_user %>
+          <li class="nav-item">
+            <div class='dropdowns'>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id='navbarDropdown' role='button' data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <%= current_user.name %>
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <%= link_to "Logout", logout_path, class: "dropdown-item" %>
+                  <%= link_to "Dashboard", dashboard_path, class: "dropdown-item" %>
+                </div>
+              </li>
+            </div>
+          </li>
+        <% else %>
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="/auth/strava">Log In With Strava</a>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</nav>
