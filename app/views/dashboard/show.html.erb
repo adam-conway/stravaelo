@@ -3,6 +3,24 @@
     <div class="row">
       <div class="col-lg-8 mx-auto">
         <a class="btn btn-primary" href="/tournaments/new" role="button">Create a New Tournament</a>
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th scope="col">Tournament name</th>
+              <th scope="col">No. of Participants</th>
+              <th scope="col">No. of Segments</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @user.tournaments.each do |tournament| %>
+              <tr class="tournament">
+                <th scope="row"><%= link_to "#{tournament.name}", tournament_path(tournament) %></th>
+                <th scope="row"><%= tournament.users.count %></th>
+                <th scope="row"><%= tournament.segments.count %></th>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
       </div>
     </div>
   </div>

@@ -17,10 +17,10 @@ describe 'User' do
   describe 'visits new tournament page' do
     scenario 'and fills out form' do
       VCR.use_cassette("New-tournament") do
-        user1 = create(:user)
+        user1 = create(:user, token: ENV['strava_my_token'])
         user2 = create(:user)
-        segment1 = create(:segment)
-        segment2 = create(:segment)
+        segment1 = create(:segment, id: 229781)
+        segment2 = create(:segment, id: 5816161)
         segment3 = create(:segment)
         allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user1)
         visit new_tournament_path
