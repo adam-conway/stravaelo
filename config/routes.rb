@@ -7,5 +7,5 @@ Rails.application.routes.draw do
   get 'dashboard', to: 'dashboard#show'
 
   resources :segments, only: [:index, :new, :create, :destroy]
-  resources :tournaments, only: [:new, :create]
+  resources :tournaments, only: [:new, :create, :show]
 end

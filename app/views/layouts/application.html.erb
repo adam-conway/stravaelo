@@ -11,7 +11,11 @@
 
   <body id="page-top">
 
-    <%= render partial: 'layouts/nav' %>
+    <% if current_page?(root_path) %>
+      <%= render partial: 'layouts/home_nav' %>
+    <% else %>
+      <%= render partial: 'layouts/sitewide_nav' %>
+    <% end %>
 
     <header class="masthead">
       <%= image_tag "background2.jpg", class: ""%>

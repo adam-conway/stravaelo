@@ -16,27 +16,29 @@ describe 'User' do
   end
   describe 'visits new tournament page' do
     scenario 'and fills out form' do
-      user1 = create(:user)
-      user2 = create(:user)
-      segment1 = create(:segment)
-      segment2 = create(:segment)
-      segment3 = create(:segment)
-      allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user1)
-      visit new_tournament_path
+      VCR.use_cassette("New-tournament") do
+        user1 = create(:user)
+        user2 = create(:user)
+        segment1 = create(:segment)
+        segment2 = create(:segment)
+        segment3 = create(:segment)
+        allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user1)
+        visit new_tournament_path
 
-      fill_in 'tournament[name]', with: 'New Tournament'
-      check "tournament_segment_ids_#{segment1.id}"
-      check "tournament_segment_ids_#{segment2.id}"
-      click_on 'Create Tournament'
+        fill_in 'tournament[name]', with: 'New Tournament'
+        check "tournament_segment_ids_#{segment1.id}"
+        check "tournament_segment_ids_#{segment2.id}"
+        click_on 'Create Tournament'
 
-      tournament = Tournament.last
+        tournament = Tournament.last
 
-      expect(tournament.name).to eq('New Tournament')
-      expect(tournament.segments.count).to eq(2)
-      expect(tournament.segments.first).to eq(segment1)
-      expect(tournament.segments.last).to eq(segment2)
-      expect(tournament.users.count).to eq(1)
-      expect(tournament.users.first).to eq(user1)
+        expect(tournament.name).to eq('New Tournament')
+        expect(tournament.segments.count).to eq(2)
+        expect(tournament.segments.first).to eq(segment1)
+        expect(tournament.segments.last).to eq(segment2)
+        expect(tournament.users.count).to eq(1)
+        expect(tournament.users.first).to eq(user1)
+      end
     end
   end
 end
