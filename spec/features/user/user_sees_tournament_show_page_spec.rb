@@ -16,7 +16,7 @@ describe 'User' do
 
         expect(page).to have_content("02:16:58")
         expect(page).to have_content("00:18:55")
-      end
+      end 
     end
-  end
+  end  
 end
