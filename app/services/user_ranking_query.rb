@@ -24,7 +24,7 @@ class UserRankingQuery
       if efforts == []
         nil
       else
-        efforts.first[:elapsed_time]
+        Time.at(efforts.first[:elapsed_time]).utc.strftime("%H:%M:%S")
       end
     end
 end

@@ -28,9 +28,12 @@
             </tr>
           </thead>
           <tbody>
-            <% @tournament.users.each do |user| %>
+            <% @user_data.each do |key, value| %>
               <tr>
-                <th scope="row"><%= user.name %></th>
+                <th scope="row"><%= key.name %></th>
+                <% value.each do |key, value| %>
+                  <th scope="row"><%= value %></th>
+                <% end %>
               </tr>
             <% end %>
           </tbody>

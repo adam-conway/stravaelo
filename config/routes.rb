@@ -6,6 +6,6 @@ Rails.application.routes.draw do
   get '/logout', to: 'sessions#destroy'
   get 'dashboard', to: 'dashboard#show'
 
-  resources :segments, only: [:index, :new, :create, :destroy]
+  resources :segments, only: [:index, :create, :destroy]
   resources :tournaments, only: [:new, :create, :show]
 end
