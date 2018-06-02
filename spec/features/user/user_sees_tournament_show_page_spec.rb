@@ -32,7 +32,7 @@ describe 'User' do
         allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user1)
         visit tournament_path(tournament1)
 
-        expect(page).to have_content("#{user2.name} (pending invite)")
+        expect(page).to have_content("#{user2.email} (pending invite)")
       end
     end
   end
