@@ -1,5 +1,7 @@
 class User < ApplicationRecord
   enum role: [ "default", "admin" ]
+  enum status: [ "active", "pending" ]
+  
   def self.from_omniauth(auth_info)
     where(uid: auth_info[:uid]).first_or_create do |new_user|
       new_user.uid                = auth_info.uid
