@@ -6,7 +6,9 @@ class UserTournamentsController < ApplicationController
     elsif tournament.users.pluck(:email).include?(params[:invite_email])
       flash[:error] = "That user is already part of this tournament!"
     else
-      UserMailer.with(challengee: params[:invite_email], challenger: tournament.users.first).challenge_email.deliver_now
+      @user = User.create(email: params[:invite_email], status: 1)
+      tournament.user_tournaments.create(user_id: @user.id)
+      UserMailer.with(challengee: @user, challenger: tournament.users.first, tournament_id: tournament.id).challenge_email.deliver_now
     end
     redirect_to tournament_path(tournament)
   end
