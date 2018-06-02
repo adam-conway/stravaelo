@@ -1,7 +1,7 @@
-require "rails_helper"
+require 'rails_helper'
 
 describe 'User' do
-  describe 'visits dashboard' do
+  context 'visits dashboard' do
     scenario 'sees all tournaments they are a part of' do
       VCR.use_cassette("tournament-show") do
         user1 = create(:user, token: ENV['strava_my_token'])
@@ -16,7 +16,7 @@ describe 'User' do
 
         expect(page).to have_content("02:16:58")
         expect(page).to have_content("00:18:55")
-      end
+     end
     end
   end
 end

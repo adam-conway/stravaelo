@@ -5,7 +5,9 @@ Rails.application.routes.draw do
   get '/auth/strava/callback', to: 'sessions#create'
   get '/logout', to: 'sessions#destroy'
   get 'dashboard', to: 'dashboard#show'
+  post '/user_tournaments/new', to: 'user_tournaments#create'
 
   resources :segments, only: [:index, :create, :destroy]
   resources :tournaments, only: [:new, :create, :show]
+  resources :user_tournaments, only: [:new, :create]
 end

@@ -1,19 +1,14 @@
-<!-- <%= @tournament.name %>
+<div class='user_add'>
+  <%= form_tag(new_user_tournament_path, class: "form-inline") do %>
+    <div class="">
+      <%= text_field_tag :invite_email %>
+      <%= hidden_field_tag 'tournament_id', "#{@tournament.id}" %>
+      <%= submit_tag "Invite to tournament", class: "btn btn-primary" %>
+    </div>
+  <% end %>
+</div>
 
-<h2>Segments tracked</h2>
-
-<% @tournament.segments.each do |segment| %>
-  <%= segment.name %>
-<% end %>
-
-<h2>Participants</h2>
-
-<% @tournament.users.each do |user| %>
-  <%= user.name %>
-<% end %> -->
-
-
-<section id="about" class="content-section text-center">
+<section id="tournament" class="content-section text-center">
   <div class="container">
     <div class="row">
       <div class="col-lg-8 mx-auto">

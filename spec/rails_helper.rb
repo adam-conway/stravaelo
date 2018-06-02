@@ -90,3 +90,23 @@ def stub_omniauth
     }
     })
 end
+
+def stub_omniauth_alternate
+  OmniAuth.config.test_mode = true
+  OmniAuth.config.mock_auth[:strava] = OmniAuth::AuthHash.new ({
+    provider: 'strava',
+    info: {
+      email: 'adam.n.conway+testoauth@gmail.com'
+    },
+    extra: {
+      raw_info: {
+        id: '31446019',
+        firstname: 'Adam',
+        lastname: 'Conway'
+      }
+    },
+    credentials: {
+      token: ENV["strava_alternate_token"],
+    }
+    })
+end
