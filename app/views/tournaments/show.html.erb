@@ -24,12 +24,21 @@
           </thead>
           <tbody>
             <% @user_data.each do |key, value| %>
-              <tr>
-                <th scope="row"><%= key.name %></th>
-                <% value.each do |key, value| %>
-                  <th scope="row"><%= value %></th>
-                <% end %>
-              </tr>
+              <% if key.status == "active" %>
+                <tr>
+                  <th scope="row"><%= key.name %></th>
+                  <% value.each do |key, value| %>
+                    <th scope="row"><%= value %></th>
+                  <% end %>
+                </tr>
+              <% else %>
+                <tr>
+                  <th scope="row"><%= key.email %> (pending invite)</th>
+                  <% value.each do |key, value| %>
+                    <th scope="row">-</th>
+                  <% end %>
+                </tr>
+              <% end %>
             <% end %>
           </tbody>
         </table>
