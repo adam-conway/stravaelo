@@ -19,7 +19,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Sat, 02 Jun 2018 18:11:55 GMT
+      - Sat, 02 Jun 2018 18:28:21 GMT
       Content-Type:
       - application/json; charset=UTF-8
       Transfer-Encoding:
@@ -35,11 +35,11 @@ http_interactions:
       X-Ratelimit-Limit:
       - '600,30000'
       X-Request-Id:
-      - d39ce981-719a-4d02-8785-70ec7473f9d1
+      - 7b38ba49-53d2-47de-a1ca-fd69efffb41b
       Etag:
       - W/"59dad4498d953055f913c0c4db7787bb"
       X-Ratelimit-Usage:
-      - '9,17'
+      - '1,21'
       X-Frame-Options:
       - DENY
       X-Content-Type-Options:
@@ -53,7 +53,7 @@ http_interactions:
         to Summit from Castle Rock","activity_type":"Ride","distance":19862.9,"average_grade":5.4,"maximum_grade":17.0,"elevation_high":1120.0,"elevation_low":38.4,"start_latlng":[37.913535470143,-122.006882568821],"end_latlng":[37.8816000837833,-121.914782887325],"start_latitude":37.913535470143,"start_longitude":-122.006882568821,"end_latitude":37.8816000837833,"end_longitude":-121.914782887325,"climb_category":5,"city":"Walnut
         Creek","state":"CA","country":"United States","private":false,"hazardous":false,"starred":false},"kom_rank":null,"pr_rank":1,"achievements":[{"type_id":3,"type":"pr","rank":1}]}]'
     http_version: 
-  recorded_at: Sat, 02 Jun 2018 18:11:55 GMT
+  recorded_at: Sat, 02 Jun 2018 18:28:21 GMT
 - request:
     method: get
     uri: https://www.strava.com/api/v3/segments/5816161/all_efforts?access_token=<STRAVA_API_KEY>
@@ -73,7 +73,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Sat, 02 Jun 2018 18:11:56 GMT
+      - Sat, 02 Jun 2018 18:28:22 GMT
       Content-Type:
       - application/json; charset=UTF-8
       Transfer-Encoding:
@@ -89,11 +89,11 @@ http_interactions:
       X-Ratelimit-Limit:
       - '600,30000'
       X-Request-Id:
-      - 0444d331-5849-4758-a6b6-93434b54921c
+      - 2634d7f8-9c09-4844-a8e8-cab4a1cf8d6f
       Etag:
       - W/"ffc2fc2707e08c96708bc5780c00b67d"
       X-Ratelimit-Usage:
-      - '10,18'
+      - '2,22'
       X-Frame-Options:
       - DENY
       X-Content-Type-Options:
@@ -127,7 +127,7 @@ http_interactions:
         Road","activity_type":"Ride","distance":4965.8,"average_grade":4.7,"maximum_grade":10.8,"elevation_high":435.1,"elevation_low":202.0,"start_latlng":[37.850298,-122.226375],"end_latlng":[37.847885,-122.201489],"start_latitude":37.850298,"start_longitude":-122.226375,"end_latitude":37.847885,"end_longitude":-122.201489,"climb_category":2,"city":"Oakland","state":"CA","country":"United
         States","private":false,"hazardous":false,"starred":false},"kom_rank":null,"pr_rank":null,"achievements":[]}]'
     http_version: 
-  recorded_at: Sat, 02 Jun 2018 18:11:56 GMT
+  recorded_at: Sat, 02 Jun 2018 18:28:22 GMT
 - request:
     method: get
     uri: https://www.strava.com/api/v3/segments/1470688/all_efforts?access_token=<STRAVA_API_KEY>
@@ -147,7 +147,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Sat, 02 Jun 2018 18:11:57 GMT
+      - Sat, 02 Jun 2018 18:28:22 GMT
       Content-Type:
       - application/json; charset=UTF-8
       Transfer-Encoding:
@@ -163,11 +163,11 @@ http_interactions:
       X-Ratelimit-Limit:
       - '600,30000'
       X-Request-Id:
-      - 4466aaf9-ee6d-4757-8599-91d69f40074b
+      - 460783f1-19f9-4a25-a7aa-bb15e653ba4a
       Etag:
       - W/"59dad4498d953055f913c0c4db7787bb"
       X-Ratelimit-Usage:
-      - '11,19'
+      - '3,23'
       X-Frame-Options:
       - DENY
       X-Content-Type-Options:
@@ -181,7 +181,7 @@ http_interactions:
         to Summit from Castle Rock","activity_type":"Ride","distance":19862.9,"average_grade":5.4,"maximum_grade":17.0,"elevation_high":1120.0,"elevation_low":38.4,"start_latlng":[37.913535470143,-122.006882568821],"end_latlng":[37.8816000837833,-121.914782887325],"start_latitude":37.913535470143,"start_longitude":-122.006882568821,"end_latitude":37.8816000837833,"end_longitude":-121.914782887325,"climb_category":5,"city":"Walnut
         Creek","state":"CA","country":"United States","private":false,"hazardous":false,"starred":false},"kom_rank":null,"pr_rank":1,"achievements":[{"type_id":3,"type":"pr","rank":1}]}]'
     http_version: 
-  recorded_at: Sat, 02 Jun 2018 18:11:58 GMT
+  recorded_at: Sat, 02 Jun 2018 18:28:22 GMT
 - request:
     method: get
     uri: https://www.strava.com/api/v3/segments/5816161/all_efforts?access_token=<STRAVA_API_KEY>
@@ -201,7 +201,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Sat, 02 Jun 2018 18:11:58 GMT
+      - Sat, 02 Jun 2018 18:28:23 GMT
       Content-Type:
       - application/json; charset=UTF-8
       Transfer-Encoding:
@@ -217,11 +217,11 @@ http_interactions:
       X-Ratelimit-Limit:
       - '600,30000'
       X-Request-Id:
-      - 2669192c-52a4-427e-a2f4-9cd12ab4ed4d
+      - d9e40bcb-94c3-40d6-bbea-cc2209dc2b2f
       Etag:
       - W/"ffc2fc2707e08c96708bc5780c00b67d"
       X-Ratelimit-Usage:
-      - '12,20'
+      - '4,24'
       X-Frame-Options:
       - DENY
       X-Content-Type-Options:
@@ -255,95 +255,5 @@ http_interactions:
         Road","activity_type":"Ride","distance":4965.8,"average_grade":4.7,"maximum_grade":10.8,"elevation_high":435.1,"elevation_low":202.0,"start_latlng":[37.850298,-122.226375],"end_latlng":[37.847885,-122.201489],"start_latitude":37.850298,"start_longitude":-122.226375,"end_latitude":37.847885,"end_longitude":-122.201489,"climb_category":2,"city":"Oakland","state":"CA","country":"United
         States","private":false,"hazardous":false,"starred":false},"kom_rank":null,"pr_rank":null,"achievements":[]}]'
     http_version: 
-  recorded_at: Sat, 02 Jun 2018 18:11:58 GMT
-- request:
-    method: get
-    uri: https://www.strava.com/api/v3/segments/1470688/all_efforts?access_token=567
-    body:
-      encoding: US-ASCII
-      string: ''
-    headers:
-      User-Agent:
-      - Faraday v0.12.2
-      Accept-Encoding:
-      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
-      Accept:
-      - "*/*"
-  response:
-    status:
-      code: 401
-      message: Unauthorized
-    headers:
-      Date:
-      - Sat, 02 Jun 2018 18:11:58 GMT
-      Content-Type:
-      - application/json; charset=UTF-8
-      Transfer-Encoding:
-      - chunked
-      Connection:
-      - keep-alive
-      Cache-Control:
-      - no-cache
-      Via:
-      - 1.1 linkerd
-      Status:
-      - 401 Unauthorized
-      X-Request-Id:
-      - 459d6ffa-4adc-43df-b083-b9165659939f
-      X-Frame-Options:
-      - DENY
-      X-Content-Type-Options:
-      - nosniff
-      X-Xss-Protection:
-      - 1; mode=block
-    body:
-      encoding: ASCII-8BIT
-      string: '{"message":"Authorization Error","errors":[{"resource":"Application","field":"","code":"invalid"}]}'
-    http_version: 
-  recorded_at: Sat, 02 Jun 2018 18:11:58 GMT
-- request:
-    method: get
-    uri: https://www.strava.com/api/v3/segments/5816161/all_efforts?access_token=567
-    body:
-      encoding: US-ASCII
-      string: ''
-    headers:
-      User-Agent:
-      - Faraday v0.12.2
-      Accept-Encoding:
-      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
-      Accept:
-      - "*/*"
-  response:
-    status:
-      code: 401
-      message: Unauthorized
-    headers:
-      Date:
-      - Sat, 02 Jun 2018 18:11:59 GMT
-      Content-Type:
-      - application/json; charset=UTF-8
-      Transfer-Encoding:
-      - chunked
-      Connection:
-      - keep-alive
-      Cache-Control:
-      - no-cache
-      Via:
-      - 1.1 linkerd
-      Status:
-      - 401 Unauthorized
-      X-Request-Id:
-      - f409104c-381e-403d-8837-668fe7bab657
-      X-Frame-Options:
-      - DENY
-      X-Content-Type-Options:
-      - nosniff
-      X-Xss-Protection:
-      - 1; mode=block
-    body:
-      encoding: ASCII-8BIT
-      string: '{"message":"Authorization Error","errors":[{"resource":"Application","field":"","code":"invalid"}]}'
-    http_version: 
-  recorded_at: Sat, 02 Jun 2018 18:11:59 GMT
+  recorded_at: Sat, 02 Jun 2018 18:28:23 GMT
 recorded_with: VCR 4.0.0
