@@ -15,7 +15,7 @@ describe 'User' do
         allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user1)
         visit tournament_path(tournament1)
 
-        fill_in :invite, with: "test@test.com"
+        fill_in :invite_email, with: "test@test.com"
         click_on "Invite to tournament"
 
         expect(ActionMailer::Base.deliveries.last).to eq(nil)
