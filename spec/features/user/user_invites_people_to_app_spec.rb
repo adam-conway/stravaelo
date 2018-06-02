@@ -41,7 +41,7 @@ describe 'User' do
         email = ActionMailer::Base.deliveries.last
 
         expect(email.from).to eq(['no-reply@stravelo.com'])
-        expect(email.to).to eq('test@test.com')
+        expect(email.to).to eq(['test@test.com'])
         expect(email.subject).to eq("#{user1.name} has challenged you to a Strava tournament!")
         expect(email.html_part.body.to_s).to have_content('Visit here to join Stravelo and compete')
       end
