@@ -23,7 +23,7 @@ module Stravaelo
     config.load_defaults 5.2
 
     config.action_mailer.default_url_options = { host: ENV['BASE_URL'] }
-    
+
     config.action_mailer.delivery_method = :smtp
 
     config.action_mailer.smtp_settings = {
@@ -45,5 +45,4 @@ module Stravaelo
 
     # Don't generate system test files.
     config.generators.system_tests = nil
-  end
 end
