@@ -1,10 +1,6 @@
 class TournamentsController < ApplicationController
   def show
-    @user_tournament = UserTournament.new
-    @tournament = Tournament.find(params[:id])
-    user_rankings = UserRankingQuery.new(@tournament.users, @tournament.segments)
-    user_rankings.run
-    @user_data = user_rankings.users_data
+    @tournament_presenter = TournamentPresenter.new(params)
   end
 
   def new
