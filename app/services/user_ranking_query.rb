@@ -1,19 +1,13 @@
 class UserRankingQuery
-  attr_reader :users_data
+  attr_reader :user, :segment
 
-  def initialize(users, segments)
-    @users = users
-    @segments = segments
-    @users_data = {}
+  def initialize(user, segment)
+    @user = user
+    @segment = segment
   end
 
   def run
-    @users.each do |user|
-      @users_data[user] = {}
-      @segments.each do |segment|
-        @users_data[user][segment] = segment_speed(user.token, segment.id)
-      end
-    end
+    segment_speed(user.token, segment.id)
   end
 
   private
