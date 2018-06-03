@@ -23,7 +23,6 @@ module Stravaelo
     config.load_defaults 5.2
 
     config.action_mailer.default_url_options = { host: ENV['BASE_URL'] }
-
     config.action_mailer.delivery_method = :smtp
 
     config.action_mailer.smtp_settings = {
@@ -37,6 +36,7 @@ module Stravaelo
     }
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
+
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration can go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded after loading
