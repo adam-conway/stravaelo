@@ -26,8 +26,11 @@ describe 'User' do
         visit new_tournament_path
 
         fill_in 'tournament[name]', with: 'New Tournament'
-        check "tournament_segment_ids_#{segment1.id}"
-        check "tournament_segment_ids_#{segment2.id}"
+
+        select(segment1.name, from: 'segments[]')
+        select(segment2.name, from: 'segments[]')
+        # check "tournament_segment_ids_#{segment1.id}"
+        # check "tournament_segment_ids_#{segment2.id}"
         click_on 'Create Tournament'
 
         tournament = Tournament.last
