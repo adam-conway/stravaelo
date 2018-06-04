@@ -12,7 +12,6 @@ class TournamentsController < ApplicationController
     @tournament = Tournament.new(tournament_params)
     if @tournament.save
       @tournament.user_tournaments.create(user_id: current_user.id)
-      binding.pry
       create_tournament_segments(params)
       flash[:success] = "Created a new tournament"
       redirect_to tournament_path(@tournament)
