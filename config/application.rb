@@ -25,6 +25,8 @@ module Stravaelo
     config.action_mailer.default_url_options = { host: ENV['BASE_URL'] }
     config.action_mailer.delivery_method = :smtp
 
+    config.serve_static_assets = true
+
     config.action_mailer.smtp_settings = {
       address:              'smtp.sendgrid.net',
       port:                 '587',
