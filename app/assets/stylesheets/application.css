@@ -13,6 +13,7 @@
  *= require css/bootstrap.min.css
  *= require font-awesome/css/font-awesome.min.css
  *= require css/grayscale.css
+ *= require multi-select.css
  *= require_tree .
  *= require_self
  */

@@ -1,13 +1,15 @@
-<% if current_admin? %>
-  <div class='segment_add'>
-    <%= form_for @segment, class: "form-inline" do |f| %>
-      <div class="">
-        <%= f.text_field :id, class: "" %>
-        <%= f.submit "Add Segment", class: "btn btn-primary" %>
-      </div>
-    <% end %>
-  </div>
-<% end %>
+<div class="container">
+  <% if current_admin? %>
+    <div class='segment_add'>
+      <%= form_for @segment, class: "form-inline" do |f| %>
+        <div class="">
+          <%= f.text_field :id, class: "" %>
+          <%= f.submit "Add Segment", class: "btn btn-primary" %>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
+</div>
 
 <section class="content-section text-center">
   <div class="col-lg-8 mx-auto">
