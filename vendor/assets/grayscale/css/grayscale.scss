@@ -125,7 +125,7 @@ a:focus, a:hover {
   display: table;
   width: 100%;
   height: auto;
-  padding: 200px 0;
+  padding: 100px 0;
   text-align: center;
   color: white;
   background-image: url('assets/beautiful-cold-fog-547115.jpg') no-repeat bottom center scroll;
@@ -159,7 +159,7 @@ background-image: image-url("beautiful-cold-fog-547115.jpg");
 
 @media (min-width: 768px) {
   .masthead {
-    height: 50%;
+    height: 40%;
     padding: 0;
   }
   .masthead .intro-body .brand-heading {
@@ -192,8 +192,8 @@ background-image: image-url("beautiful-cold-fog-547115.jpg");
 }
 
 .content-section {
-  padding-top: 150px;
-  padding-bottom: 150px;
+  padding-top: 75px;
+  padding-bottom: 75px;
 }
 
 .download-section {
@@ -300,3 +300,13 @@ img::-moz-selection {
   margin: 0 auto;
   width: 50%;
 }
+
+.new-tournament-button {
+  margin: 50px;
+}
+
+// .new_tournament {
+//   display: flex;
+//   flex-direction: column;
+//   justify-content: center;
+// }

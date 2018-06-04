@@ -1,15 +1,17 @@
-<!-- <section id="form" class="content-section text-center"> -->
+<section id="form" class="content-section text-center">
   <div class="container">
     <div class="row">
       <div class="col-lg-8 mx-auto">
         <%= form_for @tournament, class: "form-group" do |f| %>
-          <div class="">
-
+          <div class="form-group">
             <%= f.label 'Tournament Name', class: ''%>
             <%= f.text_field :name %>
+          </div>
+          <div class="form-group">
+            <label for="exampleFormControlSelect2">Select Segments</label>
 
-            <%= select_tag "segments", options_from_collection_for_select(@segments, "id", "name"), multiple: true %>
-
+            <%= select_tag "segments", options_from_collection_for_select(@segments, "id", "name"), multiple: true, class: "segment-select" %>
+          </div>
 
             <%= f.submit "Create Tournament", class: "btn btn-primary" %>
           </div>
@@ -17,4 +19,4 @@
       </div>
     </div>
   </div>
-<!-- </section> -->
+</section>
