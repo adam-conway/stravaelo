@@ -11,36 +11,38 @@
 <section id="tournament" class="content-section text-center">
   <div class="container">
     <div class="row">
-      <div class="col-lg-8 mx-auto">
+      <div class="col-lg-12 mx-auto">
         <h3><%= @tournament_presenter.tournament.name %></h3>
-        <table class="table table-hover">
-          <thead>
-            <tr>
-              <th scope="col"></th>
-              <% @tournament_presenter.segments.each do |segment| %>
-                <th scope="col"><%= segment.name %></th>
-              <% end %>
-            </tr>
-          </thead>
-          <tbody>
-            <% @tournament_presenter.active_users.each do |user| %>
+        <div class="table-responsive">
+          <table class="table table-hover">
+            <thead>
               <tr>
-                <th scope="row"> <%= user.name %> </th>
-                  <% @tournament_presenter.segments.each do |segment| %>
-                    <td> <%= @tournament_presenter.segment_ranking(user, segment) %> </td>
-                  <% end %>
-                <% end %>
-              </tr>
-            <% @tournament_presenter.pending_users.each do |user| %>
-              <tr>
-                <th scope="row"> <%= user.email %> (pending invite)</th>
+                <th scope="col"></th>
                 <% @tournament_presenter.segments.each do |segment| %>
-                  <td> - </td>
+                  <th scope="col"><%= segment.name %></th>
                 <% end %>
               </tr>
-            <% end %>
-          </tbody>
-        </table>
+            </thead>
+            <tbody>
+              <% @tournament_presenter.active_users.each do |user| %>
+                <tr>
+                  <th scope="row"> <%= user.name %> </th>
+                    <% @tournament_presenter.segments.each do |segment| %>
+                      <td> <%= @tournament_presenter.segment_ranking(user, segment) %> </td>
+                    <% end %>
+                  <% end %>
+                </tr>
+              <% @tournament_presenter.pending_users.each do |user| %>
+                <tr>
+                  <th scope="row"> <%= user.email %> (pending invite)</th>
+                  <% @tournament_presenter.segments.each do |segment| %>
+                    <td> - </td>
+                  <% end %>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
       </div>
     </div>
   </div>
