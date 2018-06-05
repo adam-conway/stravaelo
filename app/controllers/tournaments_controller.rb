@@ -11,8 +11,10 @@ class TournamentsController < ApplicationController
   def create
     @tournament = Tournament.new(tournament_params)
     if @tournament.save
-      @tournament.user_tournaments.create(user_id: current_user.id)
-      create_tournament_segments(params)
+      builder = TournamentBuilder.new(@tournament, params, current_user)
+      builder.add_user
+      builder.add_segments
+      builder.add_user_prs
       flash[:success] = "Created a new tournament"
       redirect_to tournament_path(@tournament)
     else
@@ -24,11 +26,5 @@ class TournamentsController < ApplicationController
   private
     def tournament_params
       params.require(:tournament).permit(:name)
-    end
-
-    def create_tournament_segments(params)
-      params[:segments].each do |id|
-        @tournament.tournament_segments.create(segment_id: id.to_i)
-      end
     end
 end
