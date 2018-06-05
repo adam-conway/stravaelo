@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  validates :email, presence: true 
   enum role: [ "default", "admin" ]
   enum status: [ "active", "pending" ]
 
@@ -23,5 +24,8 @@ class User < ApplicationRecord
 
   has_many :user_tournaments
   has_many :tournaments, through: :user_tournaments
+
+  has_many :user_segments
+  has_many :segments, through: :user_segments
 
 end
