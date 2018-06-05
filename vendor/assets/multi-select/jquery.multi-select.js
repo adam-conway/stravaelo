@@ -9,8 +9,6 @@
 * http://sam.zoy.org/wtfpl/COPYING for more details.
 */
 
-$('#segments').multiSelect()
-
 !function ($) {
 
   "use strict";
