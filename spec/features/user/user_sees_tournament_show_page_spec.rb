@@ -11,6 +11,8 @@ describe 'User' do
         create(:user_tournament, user: user1, tournament: tournament1)
         create(:tournament_segment, tournament: tournament1, segment: segment1)
         create(:tournament_segment, tournament: tournament1, segment: segment2)
+        create(:user_segment, user: user1, segment: segment1, pr: 1135)
+        create(:user_segment, user: user1, segment: segment2, pr: 8218)
         allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user1)
         visit tournament_path(tournament1)
 

@@ -18,16 +18,15 @@ class TournamentPresenter
   end
 
   def segment_ranking(user, segment)
-    user_ranking_query(user, segment)
+    time = UserSegment.where(segment: segment).where(user: user).first&.pr
+    if time.nil?
+      "-"
+    else
+      Time.at(time).utc.strftime("%H:%M:%S")
+    end
   end
 
   def pending_users
     tournament.pending_users
   end
-
-  private
-
-    def user_ranking_query(user, segment)
-      UserRankingQuery.new(user, segment).run
-    end
 end
