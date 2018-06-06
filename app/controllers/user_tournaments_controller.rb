@@ -12,4 +12,8 @@ class UserTournamentsController < ApplicationController
     end
     redirect_to tournament_path(tournament)
   end
+
+  def update
+  end
+  
 end

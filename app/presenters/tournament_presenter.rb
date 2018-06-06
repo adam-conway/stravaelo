@@ -18,7 +18,7 @@ class TournamentPresenter
   end
 
   def segment_ranking(user, segment)
-    time = UserSegment.where(segment: segment).where(user: user).first.pr
+    time = UserSegment.where(segment: segment).where(user: user).first&.pr
     if time.nil?
       "-"
     else
