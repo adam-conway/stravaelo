@@ -13,6 +13,7 @@ class SegmentsController < ApplicationController
     else
       segment_hash = SegmentQuery.new(params[:segment][:id]).segment_hash_data
       segment = Segment.create(segment_hash)
+      segment.update(kom_time: KomQuery.new(segment.id).kom_data)
       flash[:success] = "#{segment.name} was successfully added"
     end
     redirect_to segments_path
@@ -28,5 +29,5 @@ class SegmentsController < ApplicationController
       redirect_to segments_path
     end
   end
-  
+
 end
