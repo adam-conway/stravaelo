@@ -16,7 +16,7 @@ describe 'User' do
         visit tournament_path(tournament1)
 
         fill_in :invite_email, with: "test@test.com"
-        click_on "Invite to tournament"
+        click_on "Invite New Athlete"
 
         expect(ActionMailer::Base.deliveries.last).to eq(nil)
         expect(current_path).to eq(tournament_path(tournament1))
@@ -37,7 +37,7 @@ describe 'User' do
         visit tournament_path(tournament1)
 
         fill_in :invite_email, with: user1.email
-        click_on "Invite to tournament"
+        click_on "Invite New Athlete"
 
         expect(ActionMailer::Base.deliveries.last).to eq(nil)
         expect(current_path).to eq(tournament_path(tournament1))
@@ -57,7 +57,7 @@ describe 'User' do
         visit tournament_path(tournament1)
 
         fill_in :invite_email, with: "test@test.com"
-        click_on "Invite to tournament"
+        click_on "Invite New Athlete"
 
         email = ActionMailer::Base.deliveries.last
 
