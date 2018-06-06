@@ -1,15 +1,3 @@
-<div class='user_add'>
-  <%= form_tag(new_user_tournament_path, class: "form-inline") do %>
-    <div class="">
-      <%= text_field_tag :invite_email %>
-      <%= hidden_field_tag 'tournament_id', "#{@tournament_presenter.tournament.id}" %>
-      <%= submit_tag "Invite to tournament", class: "btn btn-primary" %>
-    </div>
-  <% end %>
-</div>
-
-<%= button_to 'Update Tournament', user_segment_path, method: :put %>
-
 <section id="tournament" class="content-section text-center">
   <div class="container">
     <div class="row">
@@ -52,8 +40,24 @@
               <% end %>
             </tbody>
           </table>
+          <%= button_to 'Refresh Times', user_segment_path, method: :put, class: 'btn btn-primary'%>
         </div>
       </div>
     </div>
   </div>
 </section>
+
+<div class="container text-center">
+  <div class="row">
+    <div class="col-lg-4 mx-auto">
+      <div>
+        <%= form_tag(new_user_tournament_path, class: "form-group") do %>
+        <%= text_field_tag :invite_email, nil, class: 'form-control', placeholder: "Enter email" %>
+
+        <%= hidden_field_tag 'tournament_id', "#{@tournament_presenter.tournament.id}" %>
+        <%= submit_tag "Invite New Athlete", class: "btn btn-primary" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
