@@ -1,0 +1,131 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://www.strava.com/api/v3/segments/1470688/all_efforts?access_token=<STRAVA_API_KEY>
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.15.2
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Wed, 06 Jun 2018 16:49:29 GMT
+      Content-Type:
+      - application/json; charset=UTF-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      Via:
+      - 1.1 linkerd
+      Status:
+      - 200 OK
+      X-Ratelimit-Limit:
+      - '600,30000'
+      X-Request-Id:
+      - 2273b091-b2e9-4f75-90e5-c09c2f6496fe
+      Etag:
+      - W/"59dad4498d953055f913c0c4db7787bb"
+      X-Ratelimit-Usage:
+      - '1,879'
+      X-Frame-Options:
+      - DENY
+      X-Content-Type-Options:
+      - nosniff
+      X-Xss-Protection:
+      - 1; mode=block
+    body:
+      encoding: ASCII-8BIT
+      string: '[{"id":33379171375,"resource_state":2,"name":"Northgate to Summit from
+        Castle Rock","activity":{"id":1346208731,"resource_state":1},"athlete":{"id":8722083,"resource_state":1},"elapsed_time":8218,"moving_time":5912,"start_date":"2018-01-07T18:56:22Z","start_date_local":"2018-01-07T10:56:22Z","distance":19834.7,"start_index":2008,"end_index":3286,"average_cadence":67.8,"device_watts":false,"average_watts":166.7,"average_heartrate":172.2,"max_heartrate":191.0,"segment":{"id":1470688,"resource_state":2,"name":"Northgate
+        to Summit from Castle Rock","activity_type":"Ride","distance":19862.9,"average_grade":5.4,"maximum_grade":17.0,"elevation_high":1120.0,"elevation_low":38.4,"start_latlng":[37.913535470143,-122.006882568821],"end_latlng":[37.8816000837833,-121.914782887325],"start_latitude":37.913535470143,"start_longitude":-122.006882568821,"end_latitude":37.8816000837833,"end_longitude":-121.914782887325,"climb_category":5,"city":"Walnut
+        Creek","state":"CA","country":"United States","private":false,"hazardous":false,"starred":false},"kom_rank":null,"pr_rank":1,"achievements":[{"type_id":3,"type":"pr","rank":1}]}]'
+    http_version: 
+  recorded_at: Wed, 06 Jun 2018 16:49:29 GMT
+- request:
+    method: get
+    uri: https://www.strava.com/api/v3/segments/5816161/all_efforts?access_token=<STRAVA_API_KEY>
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.15.2
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Wed, 06 Jun 2018 16:49:29 GMT
+      Content-Type:
+      - application/json; charset=UTF-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      Via:
+      - 1.1 linkerd
+      Status:
+      - 200 OK
+      X-Ratelimit-Limit:
+      - '600,30000'
+      X-Request-Id:
+      - d089b5d2-3133-4009-ac7a-ef2dcf0fa369
+      Etag:
+      - W/"ffc2fc2707e08c96708bc5780c00b67d"
+      X-Ratelimit-Usage:
+      - '2,880'
+      X-Frame-Options:
+      - DENY
+      X-Content-Type-Options:
+      - nosniff
+      X-Xss-Protection:
+      - 1; mode=block
+    body:
+      encoding: ASCII-8BIT
+      string: '[{"id":31707926283,"resource_state":2,"name":"Tunnel Road","activity":{"id":1282521578,"resource_state":1},"athlete":{"id":8722083,"resource_state":1},"elapsed_time":1135,"moving_time":1135,"start_date":"2017-11-19T17:19:56Z","start_date_local":"2017-11-19T09:19:56Z","distance":5003.4,"start_index":405,"end_index":689,"average_cadence":89.6,"device_watts":false,"average_watts":193.5,"average_heartrate":181.3,"max_heartrate":192.0,"segment":{"id":5816161,"resource_state":2,"name":"Tunnel
+        Road","activity_type":"Ride","distance":4965.8,"average_grade":4.7,"maximum_grade":10.8,"elevation_high":435.1,"elevation_low":202.0,"start_latlng":[37.850298,-122.226375],"end_latlng":[37.847885,-122.201489],"start_latitude":37.850298,"start_longitude":-122.226375,"end_latitude":37.847885,"end_longitude":-122.201489,"climb_category":2,"city":"Oakland","state":"CA","country":"United
+        States","private":false,"hazardous":false,"starred":false},"kom_rank":null,"pr_rank":1,"achievements":[{"type_id":3,"type":"pr","rank":1}]},{"id":33751114643,"resource_state":2,"name":"Tunnel
+        Road","activity":{"id":1361024357,"resource_state":1},"athlete":{"id":8722083,"resource_state":1},"elapsed_time":1243,"moving_time":1243,"start_date":"2018-01-17T02:21:52Z","start_date_local":"2018-01-16T18:21:52Z","distance":5009.6,"start_index":301,"end_index":559,"average_cadence":76.4,"device_watts":false,"average_watts":172.6,"segment":{"id":5816161,"resource_state":2,"name":"Tunnel
+        Road","activity_type":"Ride","distance":4965.8,"average_grade":4.7,"maximum_grade":10.8,"elevation_high":435.1,"elevation_low":202.0,"start_latlng":[37.850298,-122.226375],"end_latlng":[37.847885,-122.201489],"start_latitude":37.850298,"start_longitude":-122.226375,"end_latitude":37.847885,"end_longitude":-122.201489,"climb_category":2,"city":"Oakland","state":"CA","country":"United
+        States","private":false,"hazardous":false,"starred":false},"kom_rank":null,"pr_rank":2,"achievements":[{"type_id":3,"type":"pr","rank":2}]},{"id":29152349531,"resource_state":2,"name":"Tunnel
+        Road","activity":{"id":1183038323,"resource_state":1},"athlete":{"id":8722083,"resource_state":1},"elapsed_time":1254,"moving_time":1254,"start_date":"2017-09-14T02:02:11Z","start_date_local":"2017-09-13T19:02:11Z","distance":4891.2,"start_index":963,"end_index":1696,"average_cadence":83.6,"device_watts":false,"average_watts":170.0,"average_heartrate":161.9,"max_heartrate":172.0,"segment":{"id":5816161,"resource_state":2,"name":"Tunnel
+        Road","activity_type":"Ride","distance":4965.8,"average_grade":4.7,"maximum_grade":10.8,"elevation_high":435.1,"elevation_low":202.0,"start_latlng":[37.850298,-122.226375],"end_latlng":[37.847885,-122.201489],"start_latitude":37.850298,"start_longitude":-122.226375,"end_latitude":37.847885,"end_longitude":-122.201489,"climb_category":2,"city":"Oakland","state":"CA","country":"United
+        States","private":false,"hazardous":false,"starred":false},"kom_rank":null,"pr_rank":1,"achievements":[{"type_id":3,"type":"pr","rank":1}]},{"id":28065045319,"resource_state":2,"name":"Tunnel
+        Road","activity":{"id":1139140972,"resource_state":1},"athlete":{"id":8722083,"resource_state":1},"elapsed_time":1261,"moving_time":1261,"start_date":"2017-08-18T01:08:38Z","start_date_local":"2017-08-17T18:08:38Z","distance":4910.2,"start_index":660,"end_index":1423,"average_cadence":83.5,"device_watts":false,"average_watts":168.8,"average_heartrate":173.7,"max_heartrate":183.0,"segment":{"id":5816161,"resource_state":2,"name":"Tunnel
+        Road","activity_type":"Ride","distance":4965.8,"average_grade":4.7,"maximum_grade":10.8,"elevation_high":435.1,"elevation_low":202.0,"start_latlng":[37.850298,-122.226375],"end_latlng":[37.847885,-122.201489],"start_latitude":37.850298,"start_longitude":-122.226375,"end_latitude":37.847885,"end_longitude":-122.201489,"climb_category":2,"city":"Oakland","state":"CA","country":"United
+        States","private":false,"hazardous":false,"starred":false},"kom_rank":null,"pr_rank":1,"achievements":[{"type_id":3,"type":"pr","rank":1}]},{"id":33379168663,"resource_state":2,"name":"Tunnel
+        Road","activity":{"id":1346208731,"resource_state":1},"athlete":{"id":8722083,"resource_state":1},"elapsed_time":1275,"moving_time":1203,"start_date":"2018-01-07T15:42:08Z","start_date_local":"2018-01-07T07:42:08Z","distance":4920.5,"start_index":392,"end_index":663,"average_cadence":82.1,"device_watts":false,"average_watts":180.8,"average_heartrate":181.9,"max_heartrate":191.0,"segment":{"id":5816161,"resource_state":2,"name":"Tunnel
+        Road","activity_type":"Ride","distance":4965.8,"average_grade":4.7,"maximum_grade":10.8,"elevation_high":435.1,"elevation_low":202.0,"start_latlng":[37.850298,-122.226375],"end_latlng":[37.847885,-122.201489],"start_latitude":37.850298,"start_longitude":-122.226375,"end_latitude":37.847885,"end_longitude":-122.201489,"climb_category":2,"city":"Oakland","state":"CA","country":"United
+        States","private":false,"hazardous":false,"starred":false},"kom_rank":null,"pr_rank":null,"achievements":[]},{"id":27851283570,"resource_state":2,"name":"Tunnel
+        Road","activity":{"id":1130451078,"resource_state":1},"athlete":{"id":8722083,"resource_state":1},"elapsed_time":1282,"moving_time":1256,"start_date":"2017-08-12T19:40:43Z","start_date_local":"2017-08-12T12:40:43Z","distance":4968.6,"start_index":497,"end_index":1262,"average_cadence":83.5,"device_watts":false,"average_watts":171.5,"average_heartrate":182.3,"max_heartrate":191.0,"segment":{"id":5816161,"resource_state":2,"name":"Tunnel
+        Road","activity_type":"Ride","distance":4965.8,"average_grade":4.7,"maximum_grade":10.8,"elevation_high":435.1,"elevation_low":202.0,"start_latlng":[37.850298,-122.226375],"end_latlng":[37.847885,-122.201489],"start_latitude":37.850298,"start_longitude":-122.226375,"end_latitude":37.847885,"end_longitude":-122.201489,"climb_category":2,"city":"Oakland","state":"CA","country":"United
+        States","private":false,"hazardous":false,"starred":false},"kom_rank":null,"pr_rank":null,"achievements":[]},{"id":28131068475,"resource_state":2,"name":"Tunnel
+        Road","activity":{"id":1141899386,"resource_state":1},"athlete":{"id":8722083,"resource_state":1},"elapsed_time":1318,"moving_time":1265,"start_date":"2017-08-19T19:43:04Z","start_date_local":"2017-08-19T12:43:04Z","distance":4886.4,"start_index":882,"end_index":1633,"average_cadence":82.9,"device_watts":false,"average_watts":167.8,"average_heartrate":174.8,"max_heartrate":184.0,"segment":{"id":5816161,"resource_state":2,"name":"Tunnel
+        Road","activity_type":"Ride","distance":4965.8,"average_grade":4.7,"maximum_grade":10.8,"elevation_high":435.1,"elevation_low":202.0,"start_latlng":[37.850298,-122.226375],"end_latlng":[37.847885,-122.201489],"start_latitude":37.850298,"start_longitude":-122.226375,"end_latitude":37.847885,"end_longitude":-122.201489,"climb_category":2,"city":"Oakland","state":"CA","country":"United
+        States","private":false,"hazardous":false,"starred":false},"kom_rank":null,"pr_rank":3,"achievements":[{"type_id":3,"type":"pr","rank":3}]},{"id":29861173204,"resource_state":2,"name":"Tunnel
+        Road","activity":{"id":1211167538,"resource_state":1},"athlete":{"id":8722083,"resource_state":1},"elapsed_time":1682,"moving_time":1553,"start_date":"2017-10-01T20:37:43Z","start_date_local":"2017-10-01T13:37:43Z","distance":4983.0,"start_index":162,"end_index":438,"average_cadence":66.1,"device_watts":false,"average_watts":135.8,"average_heartrate":143.5,"max_heartrate":162.0,"segment":{"id":5816161,"resource_state":2,"name":"Tunnel
+        Road","activity_type":"Ride","distance":4965.8,"average_grade":4.7,"maximum_grade":10.8,"elevation_high":435.1,"elevation_low":202.0,"start_latlng":[37.850298,-122.226375],"end_latlng":[37.847885,-122.201489],"start_latitude":37.850298,"start_longitude":-122.226375,"end_latitude":37.847885,"end_longitude":-122.201489,"climb_category":2,"city":"Oakland","state":"CA","country":"United
+        States","private":false,"hazardous":false,"starred":false},"kom_rank":null,"pr_rank":null,"achievements":[]}]'
+    http_version: 
+  recorded_at: Wed, 06 Jun 2018 16:49:29 GMT
+recorded_with: VCR 4.0.0
