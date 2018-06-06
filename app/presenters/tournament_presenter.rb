@@ -19,7 +19,7 @@ class TournamentPresenter
 
   def segment_ranking(user, segment)
     time = UserSegment.where(segment_id: segment).where(user_id: user).first&.pr
-    if time.nil?
+    if time == 0 || time.nil?
       "-"
     else
       Time.at(time).utc.strftime("%H:%M:%S")

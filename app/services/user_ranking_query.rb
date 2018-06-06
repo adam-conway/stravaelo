@@ -16,7 +16,7 @@ class UserRankingQuery
     def segment_speed(token, segment_id)
       efforts = UserRankingService.new(token, segment_id).data
       if efforts == [] || efforts.class != Array
-        nil
+        0
       else
         efforts.first[:elapsed_time]
       end

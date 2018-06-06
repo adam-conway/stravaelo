@@ -8,7 +8,8 @@ class TournamentUpdater
   def update
     tournament.users.each do |user|
       tournament.segments.each do |segment|
-        UserSegment.first_or_create(segment_id: segment.id, user_id: user.id)
+        UserSegment.where(segment_id: segment.id, user_id: user.id)
+                   .first_or_create
                    .update(pr: UserRankingQuery.new(user, segment).run)
       end
     end
