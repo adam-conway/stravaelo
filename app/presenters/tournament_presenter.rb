@@ -46,14 +46,13 @@ class TournamentPresenter
     end.sum.round(2)
   end
 
-  def rank
+  def user_rank
     active_users.sort_by do |user|
       -total_user_performance_score(user)
     end
   end
 
   private
-
 
     def performance_percentage(user, segment)
       user_time = UserSegment.where(segment_id: segment).where(user_id: user).first&.pr

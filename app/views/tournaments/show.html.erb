@@ -24,7 +24,7 @@
               </tr>
             </thead>
             <tbody>
-              <% @tournament_presenter.active_users.each do |user| %>
+              <% @tournament_presenter.user_rank.each do |user| %>
                 <tr>
                   <th scope="row"> <%= user.name %> </th>
                   <td><%= @tournament_presenter.total_user_performance_score(user) %></td>
