@@ -8,6 +8,7 @@
             <thead class='thead-dark'>
               <tr>
                 <th scope="col"></th>
+                <th scope="col">Total</th>
                 <% @tournament_presenter.segments.each do |segment| %>
                   <th scope="col"><%= segment.name %></th>
                 <% end %>
@@ -16,6 +17,7 @@
             <thead class='kom_times'>
               <tr>
                 <th scope="col">Best Overall</th>
+                <th scope="col"></th>
                 <% @tournament_presenter.kom_times.each do |time| %>
                   <th scope="col"><%= time %></th>
                 <% end %>
@@ -25,14 +27,16 @@
               <% @tournament_presenter.active_users.each do |user| %>
                 <tr>
                   <th scope="row"> <%= user.name %> </th>
+                  <td><%= @tournament_presenter.total_user_performance_score(user) %></td>
                     <% @tournament_presenter.segments.each do |segment| %>
-                      <td> <%= @tournament_presenter.segment_ranking(user, segment) %> </td>
+                      <td> <%= @tournament_presenter.segment_ranking(user, segment) %><br> <small>(Score: <%= @tournament_presenter.user_performance(user, segment) %>)</small> </td>
                     <% end %>
                   <% end %>
                 </tr>
               <% @tournament_presenter.pending_users.each do |user| %>
                 <tr>
                   <th scope="row"> <%= user.email %> (pending invite)</th>
+                  <td> - </td>
                   <% @tournament_presenter.segments.each do |segment| %>
                     <td> - </td>
                   <% end %>
