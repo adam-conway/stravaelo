@@ -13,6 +13,12 @@ class TournamentPresenter
     tournament.segments
   end
 
+  def kom_times
+    tournament.segments.map do |segment|
+      Time.at(segment.kom_time).utc.strftime("%H:%M:%S")
+    end
+  end
+
   def active_users
     tournament.active_users
   end

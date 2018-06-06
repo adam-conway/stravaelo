@@ -14,7 +14,7 @@ class UserRankingQuery
     attr_reader :segment_id
 
     def segment_speed(token, segment_id)
-      efforts = UserRankingService.new(token, segment_id).data
+      efforts = StravaService.new(segment_id, self.class, token).data
       if efforts == [] || efforts.class != Array
         0
       else

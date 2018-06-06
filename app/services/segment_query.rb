@@ -22,6 +22,6 @@ class SegmentQuery
     attr_reader :segment_id
 
     def raw_segments
-      @data ||= SegmentService.new(segment_id).data
+      @data ||= StravaService.new(segment_id, self.class).data
     end
 end
