@@ -17,11 +17,19 @@
         <h3><%= @tournament_presenter.tournament.name %></h3>
         <div class="table-responsive">
           <table class="table table-hover">
-            <thead>
+            <thead class='thead-dark'>
               <tr>
                 <th scope="col"></th>
                 <% @tournament_presenter.segments.each do |segment| %>
                   <th scope="col"><%= segment.name %></th>
+                <% end %>
+              </tr>
+            </thead>
+            <thead class='kom_times'>
+              <tr>
+                <th scope="col">Best Overall</th>
+                <% @tournament_presenter.kom_times.each do |time| %>
+                  <th scope="col"><%= time %></th>
                 <% end %>
               </tr>
             </thead>

@@ -1715,6 +1715,12 @@ pre code {
   border-color: #32383e;
 }
 
+.kom_times {
+  color: #05BA35;
+  background-color: #212529;
+  border-color: #32383e;
+}
+
 .table .thead-light th {
   color: #495057;
   background-color: #e9ecef;
