@@ -29,7 +29,7 @@
                   <th scope="row"> <%= user.name %> </th>
                   <td><%= @tournament_presenter.total_user_performance_score(user) %></td>
                     <% @tournament_presenter.segments.each do |segment| %>
-                      <td> <%= @tournament_presenter.segment_ranking(user, segment) %><br> <small>(Score: <%= @tournament_presenter.user_performance(user, segment) %>)</small> </td>
+                      <td> <%= @tournament_presenter.segment_ranking(user, segment) %><br> <small><%= @tournament_presenter.user_performance(user, segment) %></small> </td>
                     <% end %>
                   <% end %>
                 </tr>

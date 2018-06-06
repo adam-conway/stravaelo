@@ -37,7 +37,8 @@ class TournamentPresenter
   end
 
   def user_performance(user, segment)
-    performance_percentage(user, segment)
+    score = performance_percentage(user, segment)
+    "(Score: #{score})" unless score == 0
   end
 
   def total_user_performance_score(user)
