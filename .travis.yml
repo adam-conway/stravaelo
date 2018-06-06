@@ -1,8 +1,6 @@
 language: ruby
-rvm:
+rbenv:
  - 2.4.3
- - jruby
- - rbx-3
 
 script:
   - bin/rake db:create RAILS_ENV=test
