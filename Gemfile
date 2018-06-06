@@ -20,6 +20,7 @@ gem 'newrelic_rpm'
 ##Bootstrap gems
 gem 'bootstrap-sass'
 gem 'font-awesome-rails'
+gem 'font-awesome-sass'
 gem 'jquery-easing-rails'
 gem 'jquery-rails'
 gem 'therubyracer'
