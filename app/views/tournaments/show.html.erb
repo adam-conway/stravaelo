@@ -2,7 +2,7 @@
   <div class="container">
     <div class="row">
       <div class="col-lg-12 mx-auto">
-        <h3><%= @tournament_presenter.tournament.name %></h3>
+        <h3><%= @tournament_presenter.tournament.name %><button onclick="tableToggle()" id="tableToggle">Edit Tour</button></h3>
         <div class="table-responsive">
           <table class="table table-hover">
             <thead class='thead-dark'>
@@ -12,6 +12,7 @@
                 <% @tournament_presenter.segments.each do |segment| %>
                   <th scope="col"><%= segment.name %></th>
                 <% end %>
+                <th class='edit' scope="col"></th>
               </tr>
             </thead>
             <thead class='kom_times'>
@@ -21,6 +22,7 @@
                 <% @tournament_presenter.kom_times.each do |time| %>
                   <th scope="col"><%= time %></th>
                 <% end %>
+                <th class='edit' scope="col"></th>
               </tr>
             </thead>
             <tbody>
@@ -31,8 +33,9 @@
                     <% @tournament_presenter.segments.each do |segment| %>
                       <td> <%= @tournament_presenter.segment_ranking(user, segment) %><br> <small><%= @tournament_presenter.user_performance(user, segment) %></small> </td>
                     <% end %>
-                  <% end %>
+                    <td class='edit'><%= button_to "Remove Athlete", user_tournament_path(user), method: :delete, data: { confirm: "Are you sure you want to remove this athlete?"} %></td>
                 </tr>
+              <% end %>
               <% @tournament_presenter.pending_users.each do |user| %>
                 <tr>
                   <th scope="row"> <%= user.email %> (pending invite)</th>
@@ -40,8 +43,19 @@
                   <% @tournament_presenter.segments.each do |segment| %>
                     <td> - </td>
                   <% end %>
+                  <td class='edit'><%= button_to "Remove Athlete", user_tournament_path(user), method: :delete, data: { confirm: "Are you sure you want to remove this athlete?"} %></td>
                 </tr>
               <% end %>
+              <tr>
+                <td class='edit'></td>
+                <td class='edit'></td>
+                <% @tournament_presenter.segments.each do |segment| %>
+                  <td class='edit'>
+                    <%= button_to "Remove segment", tournament_segment_path(segment), method: :delete, data: { confirm: "Are you sure you want to remove this athlete?"} %>
+                  </td>
+                <% end %>
+                <td class='edit'></td>
+              </tr>
             </tbody>
           </table>
           <%= button_to 'Refresh Times', user_segment_path, method: :put, class: 'btn btn-primary'%>
