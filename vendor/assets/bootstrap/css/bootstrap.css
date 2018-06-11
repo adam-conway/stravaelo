@@ -8906,6 +8906,10 @@ a.text-dark:hover, a.text-dark:focus {
   visibility: hidden !important;
 }
 
+.freeze {
+  overflow-y:auto;
+}
+
 @media print {
   *,
   *::before,
