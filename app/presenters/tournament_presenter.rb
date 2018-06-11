@@ -13,6 +13,10 @@ class TournamentPresenter
     tournament.segments
   end
 
+  def all_other_segments
+    Segment.where.not(id: segments.pluck(:id))
+  end
+
   def kom_times
     tournament.segments.map do |segment|
       Time.at(segment.kom_time).utc.strftime("%H:%M:%S")

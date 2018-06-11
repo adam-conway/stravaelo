@@ -10,6 +10,6 @@ Rails.application.routes.draw do
   resources :segments, only: [:index, :create, :destroy]
   resources :tournaments, only: [:new, :create, :show, :edit]
   resources :user_tournaments, only: [:new, :create, :destroy]
-  resources :tournament_segments, only: [:destroy]
+  resources :tournament_segments, only: [:destroy, :create, :new]
   resources :user_segments, only: [:update]
 end
