@@ -15,8 +15,9 @@ describe 'User' do
         allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user1)
         visit tournament_path(tournament1)
 
+        click_on 'Edit Tour'
         fill_in :invite_email, with: "test@test.com"
-        click_on "Invite New Athlete"
+        click_on "Challenge Athlete"
 
         expect(ActionMailer::Base.deliveries.last).to eq(nil)
         expect(current_path).to eq(tournament_path(tournament1))
@@ -36,8 +37,9 @@ describe 'User' do
         allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user1)
         visit tournament_path(tournament1)
 
+        click_on 'Edit Tour'
         fill_in :invite_email, with: user1.email
-        click_on "Invite New Athlete"
+        click_on "Challenge Athlete"
 
         expect(ActionMailer::Base.deliveries.last).to eq(nil)
         expect(current_path).to eq(tournament_path(tournament1))
@@ -56,8 +58,9 @@ describe 'User' do
         allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user1)
         visit tournament_path(tournament1)
 
+        click_on 'Edit Tour'
         fill_in :invite_email, with: "test@test.com"
-        click_on "Invite New Athlete"
+        click_on "Challenge Athlete"
 
         email = ActionMailer::Base.deliveries.last
 

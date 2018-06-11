@@ -12,4 +12,15 @@ class UserTournamentsController < ApplicationController
     end
     redirect_to tournament_path(tournament)
   end
+
+  def destroy
+    tournament = Tournament.find(params[:tournament])
+    @user_tournament = UserTournament.find_by(user_id: params[:id], tournament_id: params[:tournament])
+    if @user_tournament.destroy
+      flash[:success] = 'Athlete Removed'
+    else
+      flash[:error] = 'Failed to remove athlete'
+    end
+    redirect_to tournament_path(tournament)
+  end
 end

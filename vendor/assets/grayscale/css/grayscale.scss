@@ -62,7 +62,7 @@ a:focus, a:hover {
 #mainNav .navbar-toggler {
   font-size: 14px;
   padding: 11px;
-  color: #3E474E;
+  color: #ffffff;
   border: 1px solid white;
 }
 
@@ -314,4 +314,12 @@ img::-moz-selection {
 
 .ms-container {
   margin: 0 auto;
+}
+
+.edit {
+  display: none;
+}
+
+#add-athlete {
+  display: none;
 }
