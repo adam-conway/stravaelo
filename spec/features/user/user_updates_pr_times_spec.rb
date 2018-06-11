@@ -17,7 +17,9 @@ describe 'User' do
 
         expect(page).to have_content("00:08:03")
 
-        click_on 'Refresh Times'
+        within('.segment-horizontal') do
+          click_on 'Refresh Times'
+        end
 
         expect(page).to have_content("02:16:58")
       end
