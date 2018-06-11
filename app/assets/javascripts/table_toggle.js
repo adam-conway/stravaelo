@@ -28,3 +28,25 @@ function tableToggle() {
       editButton.innerHTML = 'Edit Tour';
     }
   }
+
+  function transpose() {
+      // Get all elements with class edit
+      var tableToggle = document.getElementById('transpose');
+      var segmentHorizontal = document.getElementsByClassName('segment-horizontal');
+      var athleteHorizontal = document.getElementsByClassName('athlete-horizontal');
+
+      if (segmentHorizontal[0].style.display == '') {
+        segmentHorizontal[0].style.display = 'block';
+      }
+      
+      if (segmentHorizontal[0].style.display == 'block') {
+        // edit elements are hidden, show them
+
+        segmentHorizontal[0].style.display = 'none';
+        athleteHorizontal[0].style.display = 'block';
+      }
+      else {
+        segmentHorizontal[0].style.display = 'block';
+        athleteHorizontal[0].style.display = 'none';
+      }
+    }

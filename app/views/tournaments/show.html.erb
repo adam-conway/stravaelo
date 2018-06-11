@@ -1,4 +1,6 @@
-<section id="first" class="content-section text-center first">
+<button class='btn btn-primary' onclick="transpose()" id="transpose">Transpose</button>
+
+<section id="first" class="content-section text-center first segment-horizontal">
   <div class="container">
     <div class="row">
       <div class="col-lg-12 mx-auto">
@@ -10,7 +12,7 @@
                 <th scope="col"></th>
                 <th scope="col">Total</th>
                 <% @tournament_presenter.segments.each do |segment| %>
-                  <th scope="col"><%= segment.name %> <br><%= link_to raw('<i class="far fa-trash-alt edit"></i>'), tournament_segment_path(segment, tournament_id: @tournament_presenter.tournament), method: :delete, data: { confirm: "Are you sure you want to remove #{segment.name} from this tour?"} %></th>
+                  <th scope="col"><%= segment.name %> <%= link_to raw('<i class="far fa-trash-alt edit"></i>'), tournament_segment_path(segment, tournament_id: @tournament_presenter.tournament), method: :delete, data: { confirm: "Are you sure you want to remove #{segment.name} from this tour?"} %></th>
                 <% end %>
               </tr>
             </thead>
@@ -39,6 +41,87 @@
                   <td> - </td>
                   <% @tournament_presenter.segments.each do |segment| %>
                     <td> - </td>
+                  <% end %>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+          <div class="row justify-content-md-center">
+            <div class="col-4 edit">
+              <div>
+                <%= form_tag(new_user_tournament_path, class: "form-group") do %>
+                  <%= text_field_tag :invite_email, nil, class: 'form-control', placeholder: "Enter email" %>
+
+                  <%= hidden_field_tag 'tournament_id', "#{@tournament_presenter.tournament.id}" %>
+                <%= submit_tag "Challenge Athlete", class: "btn btn-primary" %>
+                <% end %>
+              </div>
+            </div>
+            <div class="col-4 edit">
+              <%= form_tag(new_tournament_segment_path, method: :get, class: "form-group") do %>
+                <%= select_tag "segment_id", options_from_collection_for_select(@tournament_presenter.all_other_segments, "id", "name"), class: 'form-control' %>
+
+                <%= hidden_field_tag 'tournament_id', "#{@tournament_presenter.tournament.id}" %>
+                <%= submit_tag "Add Segment", class: "btn btn-primary" %>
+              <% end %>
+            </div>
+          </div>
+          <button class='btn btn-primary' onclick="tableToggle()" id="tableToggle">Edit Tour</button>
+          <%= button_to 'Refresh Times', user_segment_path, method: :put, class: 'btn btn-primary'%>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="first" class="content-section text-center first athlete-horizontal">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 mx-auto">
+        <h3><%= @tournament_presenter.tournament.name %></h3>
+        <div class="table-responsive">
+          <table class="table table-hover">
+            <thead class='thead-dark'>
+              <tr>
+                <th scope="col"></th>
+                <th scope="col">Best Overall</th>
+                <% @tournament_presenter.user_rank.each do |user| %>
+                  <th scope="col"><%= user.name %> <%= link_to raw('<i class="far fa-trash-alt edit"></i>'), user_tournament_path(user, tournament: @tournament_presenter.tournament.id), method: :delete, data: { confirm: "Are you sure you want to remove #{user.name} from this tour?"} %></th>
+                <% end %>
+                <% @tournament_presenter.pending_users.each do |user| %>
+                  <th scope="col">
+                    <%= user.email %>
+                  </th>
+                <% end %>
+              </tr>
+            </thead>
+            <thead class='kom_times'>
+              <tr>
+                <th scope="col">Total</th>
+                <th scope="col"></th>
+                <% @tournament_presenter.user_rank.each do |user| %>
+                  <th scope="col"><%= @tournament_presenter.total_user_performance_score(user) %></th>
+                <% end %>
+                <% @tournament_presenter.pending_users.each do |user| %>
+                  <th scope="col">
+                  </th>
+                <% end %>
+              </tr>
+            </thead>
+            <tbody>
+              <% @tournament_presenter.segments.each do |segment| %>
+                <tr>
+                  <td scope="row"> <%= segment.name %> <%= link_to raw('<i class="far fa-trash-alt edit"></i>'), tournament_segment_path(segment, tournament_id: @tournament_presenter.tournament), method: :delete, data: { confirm: "Are you sure you want to remove #{segment.name} from this tour?"} %></td>
+                  <td><%= @tournament_presenter.kom_time(segment) %></td>
+                  <% @tournament_presenter.user_rank.each do |user| %>
+                    <td>
+                      <%= @tournament_presenter.segment_ranking(user, segment) %>
+                    </td>
+                  <% end %>
+                  <% @tournament_presenter.pending_users.each do |user| %>
+                  <td>
+                    <p> - </p>
+                  </td>
                   <% end %>
                 </tr>
               <% end %>

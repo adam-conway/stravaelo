@@ -10,7 +10,7 @@ class TournamentPresenter
   end
 
   def segments
-    tournament.segments
+    tournament.segments.order(:name)
   end
 
   def all_other_segments
@@ -55,6 +55,10 @@ class TournamentPresenter
     active_users.sort_by do |user|
       -total_user_performance_score(user)
     end
+  end
+
+  def kom_time(segment)
+    Time.at(segment.kom_time).utc.strftime("%H:%M:%S")
   end
 
   private
