@@ -14,7 +14,7 @@ class TournamentPresenter
   end
 
   def all_other_segments
-    Segment.where.not(id: segments.pluck(:id))
+    Segment.where.not(id: segments.pluck(:id)).order(:name)
   end
 
   def kom_times

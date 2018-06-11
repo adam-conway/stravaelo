@@ -1,7 +1,7 @@
 class SegmentsController < ApplicationController
   def index
     @segment = Segment.new
-    @segments = Segment.all
+    @segments = Segment.all.order(:name)
   end
 
   def new
