@@ -87,7 +87,11 @@ class TournamentPresenter
     end
 
     def segment_times(segment)
-      user_rank.includes(:user_segments).where("user_segments.segment_id = #{segment.id}").pluck(:pr).map do |pr|
+      Segment.find(segment.id).user_segments
+                              .includes(user: [:user_tournaments])
+                              .order('user_tournaments.total_perf_perc DESC')
+                              .uniq
+                              .pluck(:pr).map do |pr|
         if pr == 0
           '-'
         else
@@ -97,7 +101,11 @@ class TournamentPresenter
     end
 
     def segment_scores(segment)
-      user_rank.includes(:user_segments).where("user_segments.segment_id = #{segment.id}").pluck(:perf_perc).map do |score|
+      Segment.find(segment.id).user_segments
+                              .includes(user: [:user_tournaments])
+                              .order('user_tournaments.total_perf_perc DESC')
+                              .uniq
+                              .pluck(:perf_perc).map do |score|
         if score == 0
           ""
         else
