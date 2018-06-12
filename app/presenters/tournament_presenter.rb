@@ -44,14 +44,8 @@ class TournamentPresenter
     user_times(user).zip(user_scores(user))
   end
 
-
-  # def user_performance(user, segment)
-  #   score = performance_percentage(user, segment)
-  #   "(Score: #{score})" unless score == 0
-  # end
-
   def total_user_performance_score(user)
-    UserTournament.where(user_id: user.id).first.total_perf_perc&.round(2)
+    UserTournament.where(user_id: user.id, tournament_id: tournament.id).first.total_perf_perc&.round(2)
   end
 
   def user_rank
@@ -111,13 +105,4 @@ class TournamentPresenter
         end
       end
     end
-    # def performance_percentage(user, segment)
-    #   user_time = UserSegment.where(segment_id: segment).where(user_id: user).first&.pr
-    #   segment_pr = Segment.find(segment.id).kom_time
-    #   if user_time == 0 || user_time.nil?
-    #     0
-    #   else
-    #     (segment_pr / user_time.to_f).round(2)
-    #   end
-    # end
 end
