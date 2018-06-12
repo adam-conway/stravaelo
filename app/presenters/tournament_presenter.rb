@@ -53,7 +53,7 @@ class TournamentPresenter
   end
 
   def user_rank_scores
-    user_rank.pluck('user_tournaments.total_perf_perc').map {|score| score&.round(2)}
+    user_rank.pluck('user_tournaments.total_perf_perc').uniq.map {|score| score&.round(2)}
   end
 
   def kom_time(segment)
