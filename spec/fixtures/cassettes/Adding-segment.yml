@@ -19,7 +19,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Wed, 06 Jun 2018 01:56:12 GMT
+      - Tue, 12 Jun 2018 22:04:03 GMT
       Content-Type:
       - application/json; charset=UTF-8
       Transfer-Encoding:
@@ -35,11 +35,11 @@ http_interactions:
       X-Ratelimit-Limit:
       - '600,30000'
       X-Request-Id:
-      - f618a0a4-99f3-43b7-8338-09c516bd5348
+      - e434695e-14e8-4010-ad8e-419244dc0b09
       Etag:
-      - W/"d0e6b0f91ca370461f0866285c3274a9"
+      - W/"1b9c5ffedaa46edd671e67b6048c6f57"
       X-Ratelimit-Usage:
-      - '10,588'
+      - '1,866'
       X-Frame-Options:
       - DENY
       X-Content-Type-Options:
@@ -49,9 +49,9 @@ http_interactions:
     body:
       encoding: ASCII-8BIT
       string: '{"id":229781,"resource_state":3,"name":"Hawk Hill","activity_type":"Ride","distance":2684.82,"average_grade":5.7,"maximum_grade":14.2,"elevation_high":245.3,"elevation_low":92.4,"start_latlng":[37.8331119,-122.4834356],"end_latlng":[37.8280722,-122.4981393],"start_latitude":37.8331119,"start_longitude":-122.4834356,"end_latitude":37.8280722,"end_longitude":-122.4981393,"climb_category":1,"city":"San
-        Francisco","state":"CA","country":"United States","private":false,"hazardous":false,"starred":false,"created_at":"2009-09-21T20:29:41Z","updated_at":"2018-06-05T08:13:06Z","total_elevation_gain":155.733,"map":{"id":"s229781","polyline":"}g|eFnpqjVl@En@Md@HbAd@d@^h@Xx@VbARjBDh@OPQf@w@d@k@XKXDFPH\\EbGT`AV`@v@|@NTNb@?XOb@cAxAWLuE@eAFMBoAv@eBt@q@b@}@tAeAt@i@dAC`AFZj@dB?~@[h@MbAVn@b@b@\\d@Eh@Qb@_@d@eB|@c@h@WfBK|AMpA?VF\\\\t@f@t@h@j@|@b@hCb@b@XTd@Bl@GtA?jAL`ALp@Tr@RXd@Rx@Pn@^Zh@Tx@Zf@`@FTCzDy@f@Yx@m@n@Op@VJr@","resource_state":3},"effort_count":330609,"athlete_count":32228,"star_count":2598,"athlete_segment_stats":{"pr_elapsed_time":null,"pr_date":null,"effort_count":0}}'
+        Francisco","state":"CA","country":"United States","private":false,"hazardous":false,"starred":false,"created_at":"2009-09-21T20:29:41Z","updated_at":"2018-06-12T08:11:41Z","total_elevation_gain":155.733,"map":{"id":"s229781","polyline":"}g|eFnpqjVl@En@Md@HbAd@d@^h@Xx@VbARjBDh@OPQf@w@d@k@XKXDFPH\\EbGT`AV`@v@|@NTNb@?XOb@cAxAWLuE@eAFMBoAv@eBt@q@b@}@tAeAt@i@dAC`AFZj@dB?~@[h@MbAVn@b@b@\\d@Eh@Qb@_@d@eB|@c@h@WfBK|AMpA?VF\\\\t@f@t@h@j@|@b@hCb@b@XTd@Bl@GtA?jAL`ALp@Tr@RXd@Rx@Pn@^Zh@Tx@Zf@`@FTCzDy@f@Yx@m@n@Op@VJr@","resource_state":3},"effort_count":332059,"athlete_count":32228,"star_count":2615,"athlete_segment_stats":{"pr_elapsed_time":null,"pr_date":null,"effort_count":0}}'
     http_version: 
-  recorded_at: Wed, 06 Jun 2018 01:56:12 GMT
+  recorded_at: Tue, 12 Jun 2018 22:04:03 GMT
 - request:
     method: get
     uri: https://www.strava.com/api/v3/segments/229781/leaderboard?access_token=<STRAVA_API_KEY>&page=1&per_page=1
@@ -71,7 +71,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Wed, 06 Jun 2018 01:56:13 GMT
+      - Tue, 12 Jun 2018 22:04:04 GMT
       Content-Type:
       - application/json; charset=UTF-8
       Transfer-Encoding:
@@ -87,11 +87,11 @@ http_interactions:
       X-Ratelimit-Limit:
       - '600,30000'
       X-Request-Id:
-      - d7b5f7ac-eec1-430b-a2ee-1c6e1e275b03
+      - d5955cf0-1e6b-45bb-8127-bd20a55fb89e
       Etag:
-      - W/"c7c27ef3d59acc90d5427232236e8598"
+      - W/"f1140322e132d42ecb981e7ab7c894fc"
       X-Ratelimit-Usage:
-      - '11,589'
+      - '2,867'
       X-Frame-Options:
       - DENY
       X-Content-Type-Options:
@@ -100,8 +100,8 @@ http_interactions:
       - 1; mode=block
     body:
       encoding: ASCII-8BIT
-      string: '{"effort_count":32438,"entry_count":32438,"kom_type":"kom","entries":[{"athlete_name":"B
+      string: '{"effort_count":32573,"entry_count":32573,"kom_type":"kom","entries":[{"athlete_name":"B
         E R T O H.","elapsed_time":346,"moving_time":346,"start_date":"2016-02-11T15:37:43Z","start_date_local":"2016-02-11T07:37:43Z","rank":1}]}'
     http_version: 
-  recorded_at: Wed, 06 Jun 2018 01:56:13 GMT
+  recorded_at: Tue, 12 Jun 2018 22:04:04 GMT
 recorded_with: VCR 4.0.0

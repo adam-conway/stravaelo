@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_06_06_012602) do
+ActiveRecord::Schema.define(version: 2018_06_12_213207) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -47,6 +47,7 @@ ActiveRecord::Schema.define(version: 2018_06_06_012602) do
     t.bigint "user_id"
     t.bigint "segment_id"
     t.integer "pr"
+    t.float "perf_perc"
     t.index ["segment_id"], name: "index_user_segments_on_segment_id"
     t.index ["user_id"], name: "index_user_segments_on_user_id"
   end
@@ -54,6 +55,7 @@ ActiveRecord::Schema.define(version: 2018_06_06_012602) do
   create_table "user_tournaments", force: :cascade do |t|
     t.bigint "user_id"
     t.bigint "tournament_id"
+    t.float "total_perf_perc"
     t.index ["tournament_id"], name: "index_user_tournaments_on_tournament_id"
     t.index ["user_id"], name: "index_user_tournaments_on_user_id"
   end
