@@ -9,22 +9,22 @@ class TournamentPresenter
     @tournament ||= Tournament.find(params[:id])
   end
 
-  def segments
-    tournament.segments.order(:name)
+  def segments_alphabetically
+    @segments ||= tournament.segments.order(:name)
   end
 
   def all_other_segments
-    Segment.where.not(id: segments.pluck(:id)).order(:name)
+    @not_used_segments ||= Segment.where.not(id: segments_alphabetically.pluck(:id)).order(:name)
   end
 
   def kom_times
-    tournament.segments.map do |segment|
-      Time.at(segment.kom_time).utc.strftime("%H:%M:%S")
+    segments_alphabetically.pluck(:kom_time).map do |kom_time|
+      Time.at(kom_time).utc.strftime("%H:%M:%S")
     end
   end
 
   def active_users
-    tournament.active_users
+    @active_users ||= tournament.active_users
   end
 
   def segment_ranking(user, segment)
@@ -37,39 +37,87 @@ class TournamentPresenter
   end
 
   def pending_users
-    tournament.pending_users
+    @pending_users ||= tournament.pending_users
   end
 
-  def user_performance(user, segment)
-    score = performance_percentage(user, segment)
-    "(Score: #{score})" unless score == 0
+  def user_times_and_scores(user)
+    user_times(user).zip(user_scores(user))
   end
+
+
+  # def user_performance(user, segment)
+  #   score = performance_percentage(user, segment)
+  #   "(Score: #{score})" unless score == 0
+  # end
 
   def total_user_performance_score(user)
-    tournament.segments.map do |segment|
-      performance_percentage(user, segment)
-    end.sum.round(2)
+    UserTournament.where(user_id: user.id).first.total_perf_perc&.round(2)
   end
 
   def user_rank
-    active_users.sort_by do |user|
-      -total_user_performance_score(user)
-    end
+    @rank ||= active_users.includes(:user_tournaments).order('user_tournaments.total_perf_perc DESC')
+  end
+
+  def user_rank_scores
+    user_rank.pluck('user_tournaments.total_perf_perc').map {|score| score&.round(2)}
   end
 
   def kom_time(segment)
     Time.at(segment.kom_time).utc.strftime("%H:%M:%S")
   end
 
+  def segment_times_and_scores(segment)
+    segment_times(segment).zip(segment_scores(segment))
+  end
+
   private
 
-    def performance_percentage(user, segment)
-      user_time = UserSegment.where(segment_id: segment).where(user_id: user).first&.pr
-      segment_pr = Segment.find(segment.id).kom_time
-      if user_time == 0 || user_time.nil?
-        0
-      else
-        (segment_pr / user_time.to_f).round(2)
+    def user_times(user)
+      segments_alphabetically.includes(:user_segments).where("user_segments.user_id = #{user.id}").pluck(:pr).map do |pr|
+        if pr == 0
+          '-'
+        else
+          Time.at(pr).utc.strftime("%H:%M:%S")
+        end
       end
     end
+
+    def user_scores(user)
+      segments_alphabetically.includes(:user_segments).where("user_segments.user_id = #{user.id}").pluck(:perf_perc).map do |score|
+        if score == 0
+          ""
+        else
+          "(Score: #{score&.round(2)})"
+        end
+      end
+    end
+
+    def segment_times(segment)
+      user_rank.includes(:user_segments).where("user_segments.segment_id = #{segment.id}").pluck(:pr).map do |pr|
+        if pr == 0
+          '-'
+        else
+          Time.at(pr).utc.strftime("%H:%M:%S")
+        end
+      end
+    end
+
+    def segment_scores(segment)
+      user_rank.includes(:user_segments).where("user_segments.segment_id = #{segment.id}").pluck(:perf_perc).map do |score|
+        if score == 0
+          ""
+        else
+          "(Score: #{score&.round(2)})"
+        end
+      end
+    end
+    # def performance_percentage(user, segment)
+    #   user_time = UserSegment.where(segment_id: segment).where(user_id: user).first&.pr
+    #   segment_pr = Segment.find(segment.id).kom_time
+    #   if user_time == 0 || user_time.nil?
+    #     0
+    #   else
+    #     (segment_pr / user_time.to_f).round(2)
+    #   end
+    # end
 end
