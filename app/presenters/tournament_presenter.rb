@@ -89,6 +89,7 @@ class TournamentPresenter
     def segment_times(segment)
       Segment.find(segment.id).user_segments
                               .includes(user: [:user_tournaments])
+                              .where("user_tournaments.tournament_id = #{tournament.id}")
                               .order('user_tournaments.total_perf_perc DESC')
                               .uniq
                               .pluck(:pr).map do |pr|
@@ -103,6 +104,7 @@ class TournamentPresenter
     def segment_scores(segment)
       Segment.find(segment.id).user_segments
                               .includes(user: [:user_tournaments])
+                              .where("user_tournaments.tournament_id = #{tournament.id}")
                               .order('user_tournaments.total_perf_perc DESC')
                               .uniq
                               .pluck(:perf_perc).map do |score|
