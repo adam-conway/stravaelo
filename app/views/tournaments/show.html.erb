@@ -1,5 +1,3 @@
-<button class='btn btn-primary' onclick="transpose()" id="transpose">Transpose</button>
-
 <section id="first" class="content-section text-center first segment-horizontal">
   <div class="container">
     <div class="row">
@@ -9,7 +7,7 @@
           <table class="table table-hover">
             <thead class='thead-dark'>
               <tr>
-                <th scope="col"></th>
+                <th scope="col"><button class='btn btn-outline-success' onclick="transpose()" id="transpose"><i class="fas fa-exchange-alt"></i> Transpose</button></th>
                 <th scope="col">Total</th>
                 <% @tournament_presenter.segments_alphabetically.each do |segment| %>
                   <th scope="col"><%= segment.name %> <%= link_to raw('<i class="far fa-trash-alt edit"></i>'), tournament_segment_path(segment, tournament_id: @tournament_presenter.tournament), method: :delete, data: { confirm: "Are you sure you want to remove #{segment.name} from this tour?"} %></th>
@@ -83,7 +81,7 @@
           <table class="table table-hover">
             <thead class='thead-dark'>
               <tr>
-                <th scope="col"></th>
+                <th scope="col"><button class='btn btn-outline-success' onclick="transpose()" id="transpose"><i class="fas fa-exchange-alt"></i> Transpose</button></th>
                 <th scope="col">Best Overall</th>
                 <% @tournament_presenter.user_rank.each do |user| %>
                   <th scope="col"><%= user.name %> <%= link_to raw('<i class="far fa-trash-alt edit"></i>'), user_tournament_path(user, tournament: @tournament_presenter.tournament.id), method: :delete, data: { confirm: "Are you sure you want to remove #{user.name} from this tour?"} %></th>
