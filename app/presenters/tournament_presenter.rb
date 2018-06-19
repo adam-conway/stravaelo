@@ -10,11 +10,11 @@ class TournamentPresenter
   end
 
   def segments_alphabetically
-    @segments ||= tournament.segments.order(:name)
+    @segments ||= tournament.segments.alphabetical
   end
 
   def all_other_segments
-    @not_used_segments ||= Segment.where.not(id: segments_alphabetically.pluck(:id)).order(:name)
+    @not_used_segments ||= Segment.excluded_segments(tournament.segments)
   end
 
   def kom_times
