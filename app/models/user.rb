@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-  validates :email, presence: true 
+  validates :email, presence: true
   enum role: [ "default", "admin" ]
   enum status: [ "active", "pending" ]
 
@@ -27,5 +27,11 @@ class User < ApplicationRecord
 
   has_many :user_segments
   has_many :segments, through: :user_segments
+
+  def total_tournament_score(tournament)
+    user_tournaments.find_by(tournament_id: tournament.id, user_id: self.id)
+                    .total_perf_perc
+                    &.round(2)
+  end
 
 end

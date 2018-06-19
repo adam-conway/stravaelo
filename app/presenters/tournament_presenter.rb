@@ -43,7 +43,8 @@ class TournamentPresenter
   end
 
   def total_user_performance_score(user)
-    UserTournament.where(user_id: user.id, tournament_id: tournament.id).first.total_perf_perc&.round(2)
+    # UserTournament.where(user_id: user.id, tournament_id: tournament.id).first.total_perf_perc&.round(2)
+    user.total_tournament_score(tournament)
   end
 
   def user_rank
