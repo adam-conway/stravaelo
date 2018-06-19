@@ -13,4 +13,10 @@ class Segment < ApplicationRecord
     where.not(id: included_segments.pluck(:id))
          .alphabetical
   end
+
+  def self.kom_times
+    pluck(:kom_time).map do |kom_time|
+      Time.at(kom_time).utc.strftime("%H:%M:%S")
+    end
+  end
 end

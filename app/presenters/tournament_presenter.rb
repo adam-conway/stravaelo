@@ -18,23 +18,21 @@ class TournamentPresenter
   end
 
   def kom_times
-    segments_alphabetically.pluck(:kom_time).map do |kom_time|
-      Time.at(kom_time).utc.strftime("%H:%M:%S")
-    end
+    segments_alphabetically.kom_times
   end
 
   def active_users
     @active_users ||= tournament.active_users
   end
 
-  def segment_ranking(user, segment)
-    time = UserSegment.where(segment_id: segment).where(user_id: user).first&.pr
-    if time == 0 || time.nil?
-      "-"
-    else
-      Time.at(time).utc.strftime("%H:%M:%S")
-    end
-  end
+  # def segment_ranking(user, segment)
+  #   time = UserSegment.where(segment_id: segment).where(user_id: user).first&.pr
+  #   if time == 0 || time.nil?
+  #     "-"
+  #   else
+  #     Time.at(time).utc.strftime("%H:%M:%S")
+  #   end
+  # end
 
   def pending_users
     @pending_users ||= tournament.pending_users
