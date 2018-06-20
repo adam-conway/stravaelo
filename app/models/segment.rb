@@ -23,6 +23,7 @@ class Segment < ApplicationRecord
   def pr_and_scores(tournament)
     user_segments.where(user_id: tournament.users.pluck(:id))
                  .includes(user: [:user_tournaments])
-                 .order("user_tournaments.total_perf_perc DESC")
+                 .where("user_tournaments.tournament_id = #{tournament.id}")
+                 .order('user_tournaments.total_perf_perc DESC')
   end
 end
