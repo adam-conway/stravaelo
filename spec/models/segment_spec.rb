@@ -39,10 +39,36 @@ RSpec.describe Segment, type: :model do
     it 'Returns all segment kom times in %H:%M:%S format' do
       segment_list = create_list(:segment, 5)
       segment_koms = Segment.kom_times
-      
+
       segment_list.each do |segment|
         expect(segment_koms.include?(Time.at(segment.kom_time).utc.strftime("%H:%M:%S")))
       end
+    end
+
+    it 'Returns a single segments times and scores for all tournament users' do
+      users = create_list(:user, 3)
+      tournaments = create_list(:tournament, 2)
+      tournaments[0].user_tournaments.create([{user_id: users[0].id, total_perf_perc: 0.40}, {user_id: users[1].id, total_perf_perc: 0.8}])
+      tournaments[1].user_tournaments.create(user_id: users[2].id)
+      segment1 = create(:segment, name: "DDDD")
+      segment2 = create(:segment, name: "AAAA")
+      users[0].user_segments.create([{ segment_id: segment1.id, pr: 100, perf_perc: 0.15 },
+                                     { segment_id: segment2.id, pr: 200, perf_perc: 0.25 }])
+      users[1].user_segments.create([{ segment_id: segment1.id, pr: 150, perf_perc: 0.35 },
+                                     { segment_id: segment2.id, pr: 250, perf_perc: 0.45 }])
+      users[2].user_segments.create([{ segment_id: segment1.id, pr: 300, perf_perc: 0.55 },
+                                     { segment_id: segment2.id, pr: 350, perf_perc: 0.65 }])
+      tournaments[0].tournament_segments.create([{segment_id: segment1.id}, {segment_id: segment2.id}])
+
+      expected = segment1.pr_and_scores(tournaments[0])
+
+      expect(expected.count).to eq(2)
+
+      expect(expected[0].pr).to eq(150)
+      expect(expected[0].perf_perc).to eq(0.35)
+
+      expect(expected[1].pr).to eq(100)
+      expect(expected[1].perf_perc).to eq(0.15)
     end
   end
 end
