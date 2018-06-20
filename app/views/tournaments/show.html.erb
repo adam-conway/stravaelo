@@ -98,7 +98,7 @@
                 <th scope="col">Total</th>
                 <th scope="col"> <%= @tournament_presenter.segments_alphabetically.count %> </th>
                 <% @tournament_presenter.user_rank_scores.each do |score| %>
-                  <th scope="col"><%= score %></th>
+                  <th scope="col"><%= score&.round(2) %></th>
                 <% end %>
                 <% @tournament_presenter.pending_users.each do |user| %>
                   <th scope="col">

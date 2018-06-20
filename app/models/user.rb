@@ -34,4 +34,16 @@ class User < ApplicationRecord
                     &.round(2)
   end
 
+  def self.tournament_ranked(tournament)
+    includes(:user_tournaments)
+      .where("user_tournaments.tournament_id = #{tournament.id}")
+      .order('user_tournaments.total_perf_perc DESC')
+  end
+
+  def pr_and_scores(tournament)
+    user_segments.where(segment_id: tournament.segments.pluck(:id))
+                 .includes(:segment)
+                 .order("segments.name")
+  end
+
 end
