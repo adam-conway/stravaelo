@@ -29,7 +29,14 @@
                   <th scope="row"> <%= user.name %> <%= link_to raw('<i class="far fa-trash-alt edit"></i>'), user_tournament_path(user, tournament: @tournament_presenter.tournament.id), method: :delete, data: { confirm: "Are you sure you want to remove #{user.name} from this tour?"} %></th>
                   <td><%= @tournament_presenter.total_user_performance_score(user) %></td>
                     <% @tournament_presenter.user_times_and_scores(user).each do |user_time_and_score| %>
-                      <td> <%= user_time_and_score[0] %><br> <small><%= user_time_and_score[1] %></small> </td>
+                      <td>
+                        <% if user_time_and_score.pr == 0 %>
+                          <p> - </p>
+                        <% else %>
+                          <%= Time.at(user_time_and_score.pr).utc.strftime("%H:%M:%S") %><br>
+                          <small>(Score: <%= user_time_and_score.perf_perc.round(2) %>)</small>
+                        <% end %>
+                      </td>
                     <% end %>
                 </tr>
               <% end %>
@@ -111,9 +118,14 @@
                 <tr>
                   <td scope="row"> <%= segment.name %> <%= link_to raw('<i class="far fa-trash-alt edit"></i>'), tournament_segment_path(segment, tournament_id: @tournament_presenter.tournament), method: :delete, data: { confirm: "Are you sure you want to remove #{segment.name} from this tour?"} %></td>
                   <td><%= @tournament_presenter.kom_time(segment) %></td>
-                  <% @tournament_presenter.segment_times_and_scores(segment).each do |time_score| %>
+                  <% @tournament_presenter.segment_times_and_scores(segment).each do |user_time_and_score| %>
                     <td>
-                      <%= time_score[0] %> <small><%= time_score[1] %></small>
+                      <% if user_time_and_score.pr == 0 %>
+                        <p> - </p>
+                      <% else %>
+                        <%= Time.at(user_time_and_score.pr).utc.strftime("%H:%M:%S") %><br>
+                        <small>(Score: <%= user_time_and_score.perf_perc.round(2) %>)</small>
+                      <% end %>
                     </td>
                   <% end %>
                   <% @tournament_presenter.pending_users.each do |user| %>

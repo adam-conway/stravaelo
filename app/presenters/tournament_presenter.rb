@@ -51,7 +51,8 @@ class TournamentPresenter
   end
 
   def segment_times_and_scores(segment)
-    segment_times(segment).zip(segment_scores(segment))
+    segment.pr_and_scores(tournament)
+    # segment_times(segment).zip(segment_scores(segment))
   end
 
   private
