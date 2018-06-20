@@ -47,63 +47,10 @@ class TournamentPresenter
 
   def user_times_and_scores(user)
     user.pr_and_scores(tournament)
-    # user_times(user).zip(user_scores(user))
   end
 
   def segment_times_and_scores(segment)
     segment.pr_and_scores(tournament)
-    # segment_times(segment).zip(segment_scores(segment))
   end
 
-  private
-
-    # def user_times(user)
-    #   segments_alphabetically.includes(:user_segments).where("user_segments.user_id = #{user.id}").pluck(:pr).map do |pr|
-    #     if pr == 0
-    #       '-'
-    #     else
-    #       Time.at(pr).utc.strftime("%H:%M:%S")
-    #     end
-    #   end
-    # end
-    #
-    # def user_scores(user)
-    #   segments_alphabetically.includes(:user_segments).where("user_segments.user_id = #{user.id}").pluck(:perf_perc).map do |score|
-    #     if score == 0
-    #       ""
-    #     else
-    #       "(Score: #{score&.round(2)})"
-    #     end
-    #   end
-    # end
-
-    def segment_times(segment)
-      Segment.find(segment.id).user_segments
-                              .includes(user: [:user_tournaments])
-                              .where("user_tournaments.tournament_id = #{tournament.id}")
-                              .order('user_tournaments.total_perf_perc DESC')
-                              .uniq
-                              .pluck(:pr).map do |pr|
-        if pr == 0
-          '-'
-        else
-          Time.at(pr).utc.strftime("%H:%M:%S")
-        end
-      end
-    end
-
-    def segment_scores(segment)
-      Segment.find(segment.id).user_segments
-                              .includes(user: [:user_tournaments])
-                              .where("user_tournaments.tournament_id = #{tournament.id}")
-                              .order('user_tournaments.total_perf_perc DESC')
-                              .uniq
-                              .pluck(:perf_perc).map do |score|
-        if score == 0
-          ""
-        else
-          "(Score: #{score&.round(2)})"
-        end
-      end
-    end
 end
