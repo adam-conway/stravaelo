@@ -19,4 +19,10 @@ class Segment < ApplicationRecord
       Time.at(kom_time).utc.strftime("%H:%M:%S")
     end
   end
+
+  def pr_and_scores(tournament)
+    user_segments.where(user_id: tournament.users.pluck(:id))
+                 .includes(user: [:user_tournaments])
+                 .order("user_tournaments.total_perf_perc DESC")
+  end
 end
