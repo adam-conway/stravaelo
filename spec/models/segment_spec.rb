@@ -2,6 +2,16 @@ require 'rails_helper'
 
 RSpec.describe Segment, type: :model do
   describe 'Field validations' do
+    it { should validate_presence_of(:name) }
+    it { should validate_presence_of(:distance) }
+    it { should validate_presence_of(:average_grade) }
+    it { should validate_presence_of(:maximum_grade) }
+    it { should validate_presence_of(:elevation_high) }
+    it { should validate_presence_of(:elevation_low) }
+    it { should validate_presence_of(:total_elevation_gain) }
+    it { should validate_presence_of(:athlete_attempts) }
+    it { should validate_presence_of(:unique_athletes) }
+    it { should validate_presence_of(:polyline) }
   end
 
   describe 'relationships' do
