@@ -12,4 +12,12 @@ Rails.application.routes.draw do
   resources :user_tournaments, only: [:new, :create, :destroy]
   resources :tournament_segments, only: [:destroy, :create, :new]
   resources :user_segments, only: [:update]
+
+  namespace :api do
+    namespace :v1 do
+      resources :tournaments, only: [] do
+        resources :segments, only: [:index]
+      end
+    end
+  end
 end

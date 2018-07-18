@@ -1,5 +1,7 @@
 {
   "name": "stravaelo",
   "private": true,
-  "dependencies": {}
+  "dependencies": {
+    "@mapbox/polyline": "^1.0.0"
+  }
 }
