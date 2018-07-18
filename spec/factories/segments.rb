@@ -10,5 +10,6 @@ FactoryBot.define do
     athlete_attempts { Faker::Number.number(4) }
     unique_athletes { Faker::Number.number(2) }
     kom_time { Faker::Number.number(4) }
+    polyline { Faker::ChuckNorris.fact }
   end
 end
