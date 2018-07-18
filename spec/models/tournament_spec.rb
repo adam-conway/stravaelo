@@ -33,5 +33,20 @@ RSpec.describe Tournament, type: :model do
       expect(ranked_user_scores[2]).to eq(ut1.total_perf_perc)
       expect(ranked_user_scores[3]).to eq(ut4.total_perf_perc)
     end
+
+    it 'Returns an array of all segment polylines in tournamet' do
+      tournament = create(:tournament)
+      segment1 = create(:segment)
+      segment2 = create(:segment)
+      segment3 = create(:segment)
+      tournament.tournament_segments.create([{segment_id: segment1.id}, {segment_id: segment2.id}])
+      
+      polylines = tournament.polylines
+
+      expect(polylines.count).to eq(2)
+      expect(polylines.include?(segment1.polyline))
+      expect(polylines.include?(segment2.polyline))
+      expect(polylines.exclude?(segment3.polyline))
+    end
   end
 end
