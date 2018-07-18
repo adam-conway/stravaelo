@@ -14,7 +14,8 @@ class SegmentQuery
       elevation_low: raw_segments[:elevation_low],
       total_elevation_gain: raw_segments[:total_elevation_gain],
       athlete_attempts: raw_segments[:effort_count],
-      unique_athletes: raw_segments[:athlete_count]
+      unique_athletes: raw_segments[:athlete_count],
+      polyline: raw_segments[:map][:polyline]
     }
   end
 
