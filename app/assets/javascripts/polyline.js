@@ -1,33 +1,3 @@
-// var polyline = require('polyline');
-
-mapboxgl.accessToken = 'pk.eyJ1IjoiYWNvbndheSIsImEiOiJjamh5N3VseDAwanRjM3BwZDIzM2h2MnN1In0.WosoWy8SHHsSOuAPI36CCg';
-var map = new mapboxgl.Map({
-  container: 'map',
-  style: 'mapbox://styles/aconway/cjhy8ohj435412rpnpwt0itac',
-  center: [-122.271099, 37.804411],
-  zoom: 8.5
-});
-
-map.on('load', function () {
-
-  // Add zoom and rotation controls to the map.
-  map.addControl(new mapboxgl.NavigationControl());
-
-  var tournament_id = location.pathname.split('/').slice(-1)[0];
-  return fetch(`http://localhost:3000/api/v1/tournaments/${tournament_id}/segments`)
-    .then((response) => {
-      return response.json()
-    })
-    .then((polylines) => {
-      polylines.forEach(polyline => populateMapWithPolyline(polyline));
-    })
-})
-
-function populateMapWithPolyline(polyline) {
-  debugger
-}
-
-
 'use strict';
 
 /**
@@ -74,7 +44,7 @@ function encode(current, previous, factor) {
  *
  * @see https://github.com/Project-OSRM/osrm-frontend/blob/master/WebContent/routing/OSRM.RoutingGeometry.js
  */
-decode = function(str, precision) {
+polyline.decode = function(str, precision) {
     var index = 0,
         lat = 0,
         lng = 0,
@@ -130,7 +100,7 @@ decode = function(str, precision) {
  * @param {Number} precision
  * @returns {String}
  */
-encode = function(coordinates, precision) {
+polyline.encode = function(coordinates, precision) {
     if (!coordinates.length) { return ''; }
 
     var factor = Math.pow(10, precision || 5),
