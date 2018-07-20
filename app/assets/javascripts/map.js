@@ -18,13 +18,34 @@ map.on('load', function () {
     .then((response) => {
       return response.json()
     })
-    .then((polylines) => {
-      polylines.forEach(polyline => populateMapWithPolyline(polyline));
+    .then((segments) => {
+      segments.forEach(segment => populateMapWithSegment(segment));
     })
 })
 
-function populateMapWithPolyline(polyline) {
-  debugger
+function populateMapWithSegment(segment) {
+  var geojson = toGeoJSON(segment.polyline)
+  // var coordinates = decode(segment.polyline)
+  // var beginning = new mapboxgl.Popup({closeButton: false, closeOnClick:false})
+  //       .setLngLat([coordinates[0][1], coordinates[0][0]])
+  //       .setHTML(`<a href='https://www.strava.com/segments/${segment.id}'>${segment.name}</a>`)
+  //       .addTo(map);
+  map.addLayer({
+        "id": segment.name,
+        "type": "line",
+        "source": {
+            "type": "geojson",
+            "data": geojson
+        },
+        "layout": {
+            "line-join": "round",
+            "line-cap": "round"
+        },
+        "paint": {
+            "line-color": "#888",
+            "line-width": 5
+        }
+    });
 }
 
 
@@ -177,8 +198,8 @@ polyline.fromGeoJSON = function(geojson, precision) {
  * @param {Number} precision
  * @returns {Object}
  */
-polyline.toGeoJSON = function(str, precision) {
-    var coords = polyline.decode(str, precision);
+toGeoJSON = function(str, precision) {
+    var coords = decode(str, precision);
     return {
         type: 'LineString',
         coordinates: flipped(coords)
