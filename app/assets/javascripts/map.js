@@ -1,6 +1,5 @@
-// var polyline = require('polyline');
-
 mapboxgl.accessToken = 'pk.eyJ1IjoiYWNvbndheSIsImEiOiJjamh5N3VseDAwanRjM3BwZDIzM2h2MnN1In0.WosoWy8SHHsSOuAPI36CCg';
+
 var map = new mapboxgl.Map({
   container: 'map',
   style: 'mapbox://styles/aconway/cjju8caf43oz02rl6w8qzeyw7',
@@ -21,16 +20,6 @@ map.on('load', function () {
     })
 })
 
-function getUserIdFromCookie(name) {
-  var nameEQ = name + "=";
-    var ca = document.cookie.split(';');
-    for(var i=0;i < ca.length;i++) {
-        var c = ca[i];
-        while (c.charAt(0)==' ') c = c.substring(1,c.length);
-        if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
-    }
-    return null;
-};
 
 function populateMapWithSegment(segment) {
   var perf_perc = segment.perf_perc * 10
@@ -47,10 +36,6 @@ function populateMapWithSegment(segment) {
     var color = white_orange_gradient[Math.floor(perf_perc)]
   }
 
-function getRandomInt(min, max) {
-  return Math.floor(Math.random() * (max - min + 1)) + min;
-}
-
   map.addLayer({
         "id": segment.name,
         "type": "line",
@@ -66,7 +51,22 @@ function getRandomInt(min, max) {
             "line-color": color,
             "line-width": 5
         }
-    });
+  });
+};
+
+function getUserIdFromCookie(name) {
+  var nameEQ = name + "=";
+  var ca = document.cookie.split(';');
+  for(var i=0;i < ca.length;i++) {
+    var c = ca[i];
+    while (c.charAt(0)==' ') c = c.substring(1,c.length);
+    if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
+  }
+  return null;
+};
+
+function getRandomInt(min, max) {
+  return Math.floor(Math.random() * (max - min + 1)) + min;
 };
 
 
