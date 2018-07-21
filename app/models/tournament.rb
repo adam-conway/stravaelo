@@ -27,6 +27,7 @@ class Tournament < ApplicationRecord
 
   def segments_with_user_scores(user_id)
     segments
+      .select("segments.*, user_segments.perf_perc")
       .joins(:user_segments)
       .where("user_segments.user_id = ?", user_id)
   end

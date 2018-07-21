@@ -9,8 +9,6 @@ var map = new mapboxgl.Map({
 });
 
 map.on('load', function () {
-
-  // Add zoom and rotation controls to the map.
   map.addControl(new mapboxgl.NavigationControl());
   var id = getUserIdFromCookie("user_id")
   var tournament_id = location.pathname.split('/').slice(-1)[0];
@@ -35,14 +33,24 @@ function getUserIdFromCookie(name) {
 };
 
 function populateMapWithSegment(segment) {
-  debugger
+  var perf_perc = segment.perf_perc * 10
   var geojson = toGeoJSON(segment.polyline)
   var coordinates = decode(segment.polyline)
   // var marker = new mapboxgl.Marker({closeButton: false, closeOnClick:false})
   //       .setLngLat([coordinates[0][1], coordinates[0][0]])
   //       .addTo(map);
-  var white_orange_gradient = ["#FFFFFF", "#FEEBE2", "#FED7C6", "#FEC3AA", "#FDAF8E", "#FD9B72", "#FD8756", "#FC733A", "#FC5F1E", "#FC4C02"]
+  var white_orange_gradient = ["#FFFFFF", "#FEEBE2", "#FED7C6", "#FEC3AA", "#FDAF8E", "#FD9B72", "#FD8756", "#FC733A", "#FC5F1E", "#FC4C02", "FFDF00"]
   var blue_orange_gradient = ["#0017F5", "#1C1CDA", "#3822BF", "#5428A4", "#702E89", "#8C346E", "#A83A53", "#C44038", "#E0461D", "#FC4C02"]
+  if (isNaN(perf_perc)) {
+    var color = white_orange_gradient[getRandomInt(1, 9)]
+  } else {
+    var color = white_orange_gradient[Math.floor(perf_perc)]
+  }
+
+function getRandomInt(min, max) {
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
   map.addLayer({
         "id": segment.name,
         "type": "line",
@@ -55,11 +63,13 @@ function populateMapWithSegment(segment) {
             "line-cap": "round"
         },
         "paint": {
-            "line-color": white_orange_gradient[segment.id.toString().split("").pop()],
+            "line-color": color,
             "line-width": 5
         }
     });
 };
+
+
 
 
 'use strict';
