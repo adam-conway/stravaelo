@@ -116,7 +116,7 @@
             <tbody>
               <% @tournament_presenter.segments_alphabetically.each do |segment| %>
                 <tr>
-                  <td scope="row"> <%= segment.name %> <%= link_to raw('<i class="far fa-trash-alt edit"></i>'), tournament_segment_path(segment, tournament_id: @tournament_presenter.tournament), method: :delete, data: { confirm: "Are you sure you want to remove #{segment.name} from this tour?"} %></td>
+                  <td scope="row"> <a href="https://www.strava.com/segments/<%= segment.id %>"><%= segment.name %></a> <%= link_to raw('<i class="far fa-trash-alt edit"></i>'), tournament_segment_path(segment, tournament_id: @tournament_presenter.tournament), method: :delete, data: { confirm: "Are you sure you want to remove #{segment.name} from this tour?"} %></td>
                   <td><%= @tournament_presenter.kom_time(segment) %></td>
                   <% @tournament_presenter.segment_times_and_scores(segment).each do |user_time_and_score| %>
                     <td>
