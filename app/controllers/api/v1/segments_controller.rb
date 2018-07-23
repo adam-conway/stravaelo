@@ -1,5 +1,9 @@
 class Api::V1::SegmentsController < ApplicationController
   def index
-    render json: Tournament.find(params[:tournament_id]).polylines
+    if params[:user_id] != "null"
+      render json: Tournament.find(params[:tournament_id]).segments_with_user_scores(params[:user_id])
+    else
+      render json: Tournament.find(params[:tournament_id]).segments
+    end
   end
 end

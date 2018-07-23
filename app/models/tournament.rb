@@ -16,10 +16,19 @@ class Tournament < ApplicationRecord
   end
 
   def total_user_scores
-    user_tournaments.order(total_perf_perc: :desc).pluck(:total_perf_perc)
+    user_tournaments
+      .order(total_perf_perc: :desc)
+      .pluck(:total_perf_perc)
   end
 
   def polylines
     segments.pluck(:polyline)
+  end
+
+  def segments_with_user_scores(user_id)
+    segments
+      .select("segments.*, user_segments.perf_perc")
+      .joins(:user_segments)
+      .where("user_segments.user_id = ?", user_id)
   end
 end

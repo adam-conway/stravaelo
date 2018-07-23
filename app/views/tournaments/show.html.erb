@@ -164,3 +164,25 @@
     </div>
   </div>
 </section>
+
+<div class="container justify-content-center">
+  <div class="row justify-content-center">
+    <% if current_user %>
+      <div id='perf-perc-legend' class='legend'>
+        <p>Segment scores</p>
+        <div><span style='background-color: #FFFFFF'></span>0 - 0.09</div>
+        <div><span style='background-color: #FEEBE2'></span>0.1 - 0.19</div>
+        <div><span style='background-color: #FED7C6'></span>0.2 - 0.29</div>
+        <div><span style='background-color: #FEC3AA'></span>0.3 - 0.39</div>
+        <div><span style='background-color: #FDAF8E'></span>0.4 - 0.49</div>
+        <div><span style='background-color: #FD9B72'></span>0.5 - 0.59</div>
+        <div><span style='background-color: #FD8756'></span>0.6 - 0.69</div>
+        <div><span style='background-color: #FC733A'></span>0.7 - 0.79</div>
+        <div><span style='background-color: #FC5F1E'></span>0.8 - 0.89</div>
+        <div><span style='background-color: #FC4C02'></span>0.9 - 0.99</div>
+        <div><span style='background-color: #FFDF00'></span>1</div>
+      </div>
+    <% end %>
+    <div id='map' style='width: 800px; height: 300px;'></div>
+  </div>
+</div>
