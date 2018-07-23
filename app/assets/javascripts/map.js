@@ -59,7 +59,7 @@ function populateMapWithSegment(segment) {
         },
         "paint": {
             "line-color": color,
-            "line-width": 5
+            "line-width": 3
         }
   });
 };

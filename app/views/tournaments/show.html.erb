@@ -10,7 +10,7 @@
                 <th scope="col"><button class='btn btn-outline-success' onclick="transpose()" id="transpose"><i class="fas fa-exchange-alt"></i> Transpose</button></th>
                 <th scope="col">Total</th>
                 <% @tournament_presenter.segments_alphabetically.each do |segment| %>
-                  <th scope="col"><%= segment.name %> <%= link_to raw('<i class="far fa-trash-alt edit"></i>'), tournament_segment_path(segment, tournament_id: @tournament_presenter.tournament), method: :delete, data: { confirm: "Are you sure you want to remove #{segment.name} from this tour?"} %></th>
+                  <th scope="col"><a href="https://www.strava.com/segments/<%= segment.id %>"><%= segment.name %></a> <%= link_to raw('<i class="far fa-trash-alt edit"></i>'), tournament_segment_path(segment, tournament_id: @tournament_presenter.tournament), method: :delete, data: { confirm: "Are you sure you want to remove #{segment.name} from this tour?"} %></th>
                 <% end %>
               </tr>
             </thead>
@@ -183,6 +183,6 @@
         <div><span style='background-color: #FFDF00'></span>1</div>
       </div>
     <% end %>
-    <div id='map' style='width: 800px; height: 300px;'></div>
+    <div id='map' style='width: 900px; height: 400px;'></div>
   </div>
 </div>
