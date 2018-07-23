@@ -7,12 +7,21 @@ var map = new mapboxgl.Map({
   zoom: 8.5
 });
 
+function baseURL() {
+  const host = window.location.hostname
+  if (host === "localhost" || host === "127.0.0.1") {
+    return `http://localhost:3000`
+  } else {
+    return `http://www.stravaelo.com`
+  }
+}
+
 map.on('load', function () {
   map.addControl(new mapboxgl.NavigationControl());
   var id = getUserIdFromCookie("user_id")
-  debugger
   var tournament_id = location.pathname.split('/').slice(-1)[0];
-  return fetch(`http://localhost:3000/api/v1/tournaments/${tournament_id}/segments?user_id=${id}`)
+  var base = baseURL()
+  return fetch(`${base}/api/v1/tournaments/${tournament_id}/segments?user_id=${id}`)
     .then((response) => {
       return response.json()
     })
