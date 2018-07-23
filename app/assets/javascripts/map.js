@@ -10,6 +10,7 @@ var map = new mapboxgl.Map({
 map.on('load', function () {
   map.addControl(new mapboxgl.NavigationControl());
   var id = getUserIdFromCookie("user_id")
+  debugger
   var tournament_id = location.pathname.split('/').slice(-1)[0];
   return fetch(`http://localhost:3000/api/v1/tournaments/${tournament_id}/segments?user_id=${id}`)
     .then((response) => {
@@ -28,7 +29,7 @@ function populateMapWithSegment(segment) {
   // var marker = new mapboxgl.Marker({closeButton: false, closeOnClick:false})
   //       .setLngLat([coordinates[0][1], coordinates[0][0]])
   //       .addTo(map);
-  var white_orange_gradient = ["#FFFFFF", "#FEEBE2", "#FED7C6", "#FEC3AA", "#FDAF8E", "#FD9B72", "#FD8756", "#FC733A", "#FC5F1E", "#FC4C02", "FFDF00"]
+  var white_orange_gradient = ["#FFFFFF", "#FEEBE2", "#FED7C6", "#FEC3AA", "#FDAF8E", "#FD9B72", "#FD8756", "#FC733A", "#FC5F1E", "#FC4C02", "#FFDF00"]
   var blue_orange_gradient = ["#0017F5", "#1C1CDA", "#3822BF", "#5428A4", "#702E89", "#8C346E", "#A83A53", "#C44038", "#E0461D", "#FC4C02"]
   if (isNaN(perf_perc)) {
     var color = white_orange_gradient[getRandomInt(1, 9)]
