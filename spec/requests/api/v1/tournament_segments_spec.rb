@@ -8,7 +8,7 @@ describe "Tournament segments API" do
     segment3 = create(:segment)
     tournament.tournament_segments.create([{segment_id: segment1.id}, {segment_id: segment2.id}])
 
-    get "/api/v1/tournaments/#{tournament.id}/segments"
+    get "/api/v1/tournaments/#{tournament.id}/segments?user_id=null"
     expect(response.successful?)
     segments = JSON.parse(response.body)
 
