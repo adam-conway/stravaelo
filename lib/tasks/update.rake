@@ -3,17 +3,25 @@ namespace :update do
   task strava_data: :environment do
     fifteen_min_requests = 0
     daily_requests = 0
-    User.connection
-    Segment.connection
-    User.all.each do |user|
-      user.segments_in_tournaments
+    Tournament.all.each do |tournament|
+      next if tournament.updated_at
+      tournament.users.each do |user|
+        tournament.segments.each do |segment|
+          binding.pry
+        end
+      end
+    end
+    # User.connection
+    # Segment.connection
+    # User.all.each do |user|
+    #   user.segments_in_tournaments
       # Segment.all.each do |segment|
       #   user_segment = UserSegment
       #                   .where(segment_id: segment.id, user_id: user.id)
       #                   .first_or_create
       #   UserSegmentUpdater(user_segment).update
       # end
-    end
+    # end
   end
 
 end
