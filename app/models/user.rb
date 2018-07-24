@@ -46,4 +46,7 @@ class User < ApplicationRecord
                  .order("segments.name")
   end
 
+  def segments_in_tournaments
+    binding.pry
+  end
 end
