@@ -26,6 +26,8 @@ module Stravaelo
     config.action_mailer.delivery_method = :smtp
 
     config.serve_static_assets = true
+    
+    config.active_job.queue_adapter = :sidekiq
 
     config.action_mailer.smtp_settings = {
       address:              'smtp.sendgrid.net',
