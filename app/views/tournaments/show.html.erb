@@ -72,7 +72,9 @@
             </div>
           </div>
           <button class='btn btn-primary' onclick="tableToggle()" id="tableToggle">Edit Tour</button>
-          <%= button_to 'Refresh Times', user_segment_path, method: :put, class: 'btn btn-primary'%>
+          <p>Scores updates daily<br>
+            <small>Last updated: <%= @tournament_presenter.tournament.updated_at %></small>
+          </p>
         </div>
       </div>
     </div>
@@ -158,7 +160,9 @@
             </div>
           </div>
           <button class='btn btn-primary' onclick="tableToggle()" id="tableToggle">Edit Tour</button>
-          <%= button_to 'Refresh Times', user_segment_path, method: :put, class: 'btn btn-primary'%>
+          <p>Scores updates daily<br>
+            <small>Last updated: <%= @tournament_presenter.tournament.updated_at %></small>
+          </p>
         </div>
       </div>
     </div>
