@@ -17,7 +17,8 @@ function baseURL() {
 }
 
 map.on('load', function () {
-  map.addControl(new mapboxgl.NavigationControl());
+  var nav = new mapboxgl.NavigationControl();
+  map.addControl(nav, 'top-left');
   var id = getUserIdFromCookie("user_id")
   var tournament_id = location.pathname.split('/').slice(-1)[0];
   var base = baseURL()
