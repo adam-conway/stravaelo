@@ -6,7 +6,6 @@ Stravaelo is a rails application built using Strava's API which enhances it's co
 Stravaelo was built using Ruby on Rails and PostgreSQL for data storage. It also makes heavy use of Strava's API for athlete data and OAuth. The front end was built using Bootstrap, including Javascript, CSS3 and HTML.
 
 The production application can be found [here](www.stravaelo.com)
-<img src="https://i.imgur.com/NAzfVWd.png" />
 
 Ruby version - 2.4.3
 
